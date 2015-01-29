@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Work and thoughts from the mind of James Martin.">
+    <meta name="author" content="James Martin">
+    <title>Hack Night Demo - Lucidity</title>
+
+    <!--fonts-->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href='css/notebook.css' rel='stylesheet' type='text/css'>
+    <link href='css/site.css' rel='stylesheet' type='text/css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <!-- Custom stylesheet, it must be in the same directory as the html file -->
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": { styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } });
+    </script>
+    <!-- End of mathjax configuration -->
+
+</head>
+
+<body>
+
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+
+        <div class="container" id="notebook-container">
+
+        <!-- Header Section -->
+        <header id="siteTitle">
+            <h1><a href="index.html">Lucidity</a></h1>
+            <h3>Presented by James Martin</h3>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="net-score/index.html">net-score Project</a>
+                <a href="about.html">About</a>
+            </nav>
+        </header>
+
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <h1 id="hack-night-demo">Hack Night Demo</h1>
+                        <hr>
+                        <p>29 Jan. 2015</p>
+                        <h2 id="installation">Installation</h2>
+                        <p>First, we&#39;re going to download <a href="https://store.continuum.io/cshop/anaconda/">Anaconda</a>, which is a nifty distribution of Python that is self contained. It contains everything we need. Be careful Googling for &quot;anaconda,&quot; Nicki Minaj has a monopoly on the search results. ;) </p>
+                        <ul>
+                            <li>After running the bash script or opening the .exe file, pay close attention to the liscence agreement - it&#39;s easy to say &quot;no&quot; by accident. </li>
+                            <li>Choose to prepend your PATH variable with the anaconda/bin folder. This makes it much easier to launch Ipython Notebook. </li>
+                            <li>Also, run <code>conda update conda</code> and download any available updates.</li>
+                        </ul>
+                        <p>When finished, create a new folder under your Documents or where you keep code, name it what you please but I like to call mine &quot;notebooks.&quot;</p>
+                        <ul>
+                            <li>Open your flavor of terminal and navigate to this folder.</li>
+                            <li>Execute the <code>ipython notebook</code> command</li>
+                        </ul>
+                        <p>If you installed everything correctly, your default browser should pop up with a dashboard!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>Now, we&#39;re going to download some sample data to have something to play with. </p>
+                        <ul>
+                            <li>Navigate to <a href="https://www.ookla.com/netmetrics">https://www.ookla.com/netmetrics</a> and click &quot;Download Sample Data.&quot; Remember where you save the zip folder.</li>
+                        </ul>
+                        <p>I&#39;m going to save it to a folder one directory above where my notebooks reside. Let&#39;s extract the folder and see what we have. You can run shell commands within cells using a &quot;bang&quot; (!).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[141]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="o">!</span>ls ../data_samples
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt"></div>
+                            <div class="output_subarea output_stream output_stdout output_text">
+                                <pre>
+android_col_headers.txt ptnet_col_headers.txt   survey_col_headers.txt
+android_data_sample.csv ptnet_data_sample.csv   survey_data_sample.csv
+iphone_col_headers.txt  stnet_col_headers.txt   wp_col_headers.txt
+iphone_data_sample.csv  stnet_data_sample.csv   wp_data_sample.csv
+
+</pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>Okay, sweet, looks like we have some header files and some data in comma separated files, or .csv. Let&#39;s take a closer look at the iPhone data by seeing what sort of metrics Ookla collected.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[142]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="o">!</span>cat ../data_samples/iphone_col_headers.txt
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt"></div>
+                            <div class="output_subarea output_stream output_stdout output_text">
+                                <pre>
+test_id - unique id of test in our system
+device_id - unique device id in our system
+test_date - YYYY-MM-DD HH:MM:SS in Pacific time (we can accommodate different timezones if needed)
+client_ip - ip of client 
+download_kbps - download speed in kilobits per second
+upload_kbps - upload speed in kilobits per second
+latency_ms - ping in milliseconds
+server_name - name of server tested to (name of city it is located in)
+server_country - country name of server
+server_country_code - country code of server
+server_latitude - latitude of server tested to
+server_longitude - longitude of server tested to
+server_sponsor_name - sponsor name of server
+client_country - country name of the client
+client_country_code - country code of the client
+client_region - region name of client (this will be state in the US)
+client_region_code - region code of client
+client_city - city of client
+client_latitude - latitude of client (GPS or Maxmind when location services disabled)
+client_longitude - longitude of client (GPS or Maxmind when location services disabled)
+miles_between - miles between the client and the server tested to
+connection_type - 0=unknown, 1=cell, 2=wifi, 3=GPRS, 4=Edge, 5=WCDMA, 6=HSDPA, 7=HSUPA, 8=CDMA1x, 9=CDMAEVDORev0, 10=CDMAEVDORevB, 11=eHRPD, 12=LTE 
+isp_name  - name of ISP (Maxmind) 
+is_isp    - 0=Corporation/Academic, 1=ISP
+carrier_name - http://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/carrierName 
+iso_country_code - http://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/isoCountryCode 
+mobile_country_code - http://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/mobileCountryCode 
+mobile_network_code - http://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/mobileNetworkCode
+model - iPad, iPhone, iPod Touch 
+version - iOS version
+location_type - 0 = unknown, 1 = GPS, 2 = GeoIP
+
+</pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <h2 id="telling-stories">Telling stories</h2>
+                        <p>So now we know what the data contains, let&#39;s think about what we want to find out... Say my carrier has been really slow on my phone and I don&#39;t think I&#39;m getting very good network speeds when using cellular data. I want to shop for a new phone and can change carriers. Let&#39;s find out which carrier has the fastest average (mean) network speed! </p>
+                        <p>First, we have to read the data in. Let&#39;s use one of my favorite Python libraries - Pandas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[143]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[144]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data_samples/iphone_data_sample.csv&#39;</span><span class="p">)</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[145]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt"></div>
+                            <div class="output_subarea output_stream output_stdout output_text">
+                                <pre>
+&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+Int64Index: 5000 entries, 0 to 4999
+Data columns (total 31 columns):
+test_id                5000 non-null int64
+iphone_device_id       5000 non-null int64
+test_date              5000 non-null object
+client_ip_address      5000 non-null object
+download_kbps          5000 non-null int64
+upload_kbps            5000 non-null int64
+latency                5000 non-null int64
+server_name            5000 non-null object
+server_country         5000 non-null object
+server_country_code    4998 non-null object
+server_latitude        5000 non-null float64
+server_longitude       5000 non-null float64
+server_sponsor_name    4871 non-null object
+client_country         5000 non-null object
+client_country_code    4998 non-null object
+client_region_name     5000 non-null object
+client_region_code     5000 non-null object
+client_city            5000 non-null object
+client_latitude        5000 non-null float64
+client_longitude       5000 non-null float64
+miles_between          5000 non-null float64
+connection_type        5000 non-null int64
+isp_name               5000 non-null object
+is_isp                 5000 non-null int64
+carrier_name           4994 non-null object
+iso_country_code       4873 non-null object
+mobile_country_code    5000 non-null int64
+mobile_network_code    5000 non-null int64
+model                  5000 non-null object
+version                5000 non-null object
+location_type          5000 non-null int64
+dtypes: float64(5), int64(10), object(16)
+</pre>
+                            </div>
+                        </div>
+
+                        <div class="output_area">
+                            <div class="prompt output_prompt">
+                                Out[145]:</div>
+
+                            <div class="output_html rendered_html output_subarea output_pyout">
+                                <div style="max-height:1000px;max-width:1500px;overflow:auto;">
+                                    <table border="1" class="dataframe">
+                                        <thead>
+                                            <tr style="text-align: right;">
+                                                <th></th>
+                                                <th>test_id</th>
+                                                <th>iphone_device_id</th>
+                                                <th>test_date</th>
+                                                <th>client_ip_address</th>
+                                                <th>download_kbps</th>
+                                                <th>upload_kbps</th>
+                                                <th>latency</th>
+                                                <th>server_name</th>
+                                                <th>server_country</th>
+                                                <th>server_country_code</th>
+                                                <th>...</th>
+                                                <th>connection_type</th>
+                                                <th>isp_name</th>
+                                                <th>is_isp</th>
+                                                <th>carrier_name</th>
+                                                <th>iso_country_code</th>
+                                                <th>mobile_country_code</th>
+                                                <th>mobile_network_code</th>
+                                                <th>model</th>
+                                                <th>version</th>
+                                                <th>location_type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>0</th>
+                                                <td> 1053769770</td>
+                                                <td> 42540590</td>
+                                                <td> 2014-12-01 00:00:00</td>
+                                                <td> 178.81.xxx.xxx</td>
+                                                <td> 11391</td>
+                                                <td> 2420</td>
+                                                <td> 99</td>
+                                                <td> Jeddah</td>
+                                                <td> Saudi Arabia</td>
+                                                <td> SA</td>
+                                                <td>...</td>
+                                                <td> 2</td>
+                                                <td> Mobily</td>
+                                                <td> 1</td>
+                                                <td> STC</td>
+                                                <td> SA</td>
+                                                <td> 420</td>
+                                                <td> 1</td>
+                                                <td> iPhone5S</td>
+                                                <td> 8.1.1</td>
+                                                <td> 1</td>
+                                            </tr>
+                                            <tr>
+                                                <th>1</th>
+                                                <td> 1053769771</td>
+                                                <td> 55001812</td>
+                                                <td> 2014-12-01 00:00:00</td>
+                                                <td> 124.13.xxx.xxx</td>
+                                                <td> 544</td>
+                                                <td> 4491</td>
+                                                <td> 20</td>
+                                                <td> Puchong</td>
+                                                <td> Malaysia</td>
+                                                <td> MY</td>
+                                                <td>...</td>
+                                                <td> 2</td>
+                                                <td> Telekom Malaysia</td>
+                                                <td> 1</td>
+                                                <td> DiGi</td>
+                                                <td> MY</td>
+                                                <td> 502</td>
+                                                <td> 16</td>
+                                                <td> iPhone5</td>
+                                                <td> 8.1.2</td>
+                                                <td> 1</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2</th>
+                                                <td> 1053769772</td>
+                                                <td> 55143153</td>
+                                                <td> 2014-12-01 00:00:00</td>
+                                                <td> 92.232.xxx.xxx</td>
+                                                <td> 42094</td>
+                                                <td> 6098</td>
+                                                <td> 10</td>
+                                                <td> Birmingham</td>
+                                                <td> Great Britain</td>
+                                                <td> GB</td>
+                                                <td>...</td>
+                                                <td> 2</td>
+                                                <td> Virgin Media</td>
+                                                <td> 1</td>
+                                                <td> Three</td>
+                                                <td> GB</td>
+                                                <td> 234</td>
+                                                <td> 20</td>
+                                                <td> iPhone5S</td>
+                                                <td> 8.1.2</td>
+                                                <td> 1</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <td> 1053769773</td>
+                                                <td> 38269882</td>
+                                                <td> 2014-12-01 00:00:00</td>
+                                                <td> 91.99.xxx.xxx</td>
+                                                <td> 478</td>
+                                                <td> 587</td>
+                                                <td> 48</td>
+                                                <td> Tehran</td>
+                                                <td> Iran</td>
+                                                <td> IR</td>
+                                                <td>...</td>
+                                                <td> 2</td>
+                                                <td> Pars Online PJS</td>
+                                                <td> 1</td>
+                                                <td> Carrier</td>
+                                                <td> IR</td>
+                                                <td> 432</td>
+                                                <td> 11</td>
+                                                <td> iPhone5C</td>
+                                                <td> 8.1.2</td>
+                                                <td> 1</td>
+                                            </tr>
+                                            <tr>
+                                                <th>4</th>
+                                                <td> 1053769774</td>
+                                                <td> 27035145</td>
+                                                <td> 2014-12-01 00:00:00</td>
+                                                <td> 37.216.xxx.xxx</td>
+                                                <td> 1</td>
+                                                <td> 233</td>
+                                                <td> 35</td>
+                                                <td> Jeddah</td>
+                                                <td> Saudi Arabia</td>
+                                                <td> SA</td>
+                                                <td>...</td>
+                                                <td> 12</td>
+                                                <td> Mobily</td>
+                                                <td> 1</td>
+                                                <td> Mobily</td>
+                                                <td> SA</td>
+                                                <td> 420</td>
+                                                <td> 3</td>
+                                                <td> iPhone5</td>
+                                                <td> 8.1.2</td>
+                                                <td> 1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p>5 rows × 31 columns</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>I just want to pause here real quick to explain Pandas DataFrames and Series. DataFrames are pretty much tables and Series are pretty much lists, if you want to read more, the <a href="http://pandas.pydata.org/pandas-docs/version/0.15.1/">documentation for pandas</a> is very thorough.</p>
+                        <p>Alright, now let&#39;s extract out the tests carried out in the United States with fairly straightforward boolean selection. Pandas is super flexible but it is also in-place, so we will have to store the selection as a new DataFrame.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[146]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="c"># We want to filter out tests not in the US and the tests that were on WiFi</span>
+<span class="n">us_tests</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;server_country_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;US&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;connection_type&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="c"># We&#39;re also going to apply a lambda expression to make all the carrier names lowercase, for later use.</span>
+<span class="n">us_tests</span><span class="p">[</span><span class="s">&#39;carrier_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">us_tests</span><span class="p">[</span><span class="s">&#39;carrier_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="c"># Keep an eye out for more lambda expressions in this demo, they are quite useful!</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[147]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">us_tests</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">us_tests</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt"></div>
+                            <div class="output_subarea output_stream output_stdout output_text">
+                                <pre>
+&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+Int64Index: 84 entries, 5 to 4997
+Data columns (total 31 columns):
+test_id                84 non-null int64
+iphone_device_id       84 non-null int64
+test_date              84 non-null object
+client_ip_address      84 non-null object
+download_kbps          84 non-null int64
+upload_kbps            84 non-null int64
+latency                84 non-null int64
+server_name            84 non-null object
+server_country         84 non-null object
+server_country_code    84 non-null object
+server_latitude        84 non-null float64
+server_longitude       84 non-null float64
+server_sponsor_name    84 non-null object
+client_country         84 non-null object
+client_country_code    84 non-null object
+client_region_name     84 non-null object
+client_region_code     84 non-null object
+client_city            84 non-null object
+client_latitude        84 non-null float64
+client_longitude       84 non-null float64
+miles_between          84 non-null float64
+connection_type        84 non-null int64
+isp_name               84 non-null object
+is_isp                 84 non-null int64
+carrier_name           84 non-null object
+iso_country_code       84 non-null object
+mobile_country_code    84 non-null int64
+mobile_network_code    84 non-null int64
+model                  84 non-null object
+version                84 non-null object
+location_type          84 non-null int64
+dtypes: float64(5), int64(10), object(16)
+</pre>
+                            </div>
+                        </div>
+
+                        <div class="output_area">
+                            <div class="prompt output_prompt">
+                                Out[147]:</div>
+
+                            <div class="output_html rendered_html output_subarea output_pyout">
+                                <div style="max-height:1000px;max-width:1500px;overflow:auto;">
+                                    <table border="1" class="dataframe">
+                                        <thead>
+                                            <tr style="text-align: right;">
+                                                <th></th>
+                                                <th>test_id</th>
+                                                <th>iphone_device_id</th>
+                                                <th>test_date</th>
+                                                <th>client_ip_address</th>
+                                                <th>download_kbps</th>
+                                                <th>upload_kbps</th>
+                                                <th>latency</th>
+                                                <th>server_name</th>
+                                                <th>server_country</th>
+                                                <th>server_country_code</th>
+                                                <th>...</th>
+                                                <th>connection_type</th>
+                                                <th>isp_name</th>
+                                                <th>is_isp</th>
+                                                <th>carrier_name</th>
+                                                <th>iso_country_code</th>
+                                                <th>mobile_country_code</th>
+                                                <th>mobile_network_code</th>
+                                                <th>model</th>
+                                                <th>version</th>
+                                                <th>location_type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>5 </th>
+                                                <td> 1053769775</td>
+                                                <td> 55137640</td>
+                                                <td> 2014-12-01 00:00:00</td>
+                                                <td> 172.56.xxx.xxx</td>
+                                                <td> 4694</td>
+                                                <td> 665</td>
+                                                <td> 80</td>
+                                                <td> Riverside, CA</td>
+                                                <td> United States</td>
+                                                <td> US</td>
+                                                <td>...</td>
+                                                <td> 6</td>
+                                                <td> T-MOBILE USA</td>
+                                                <td> 1</td>
+                                                <td> t-mobile</td>
+                                                <td> US</td>
+                                                <td> 310</td>
+                                                <td> 260</td>
+                                                <td> iPhone5S</td>
+                                                <td> 8.1.1</td>
+                                                <td> 1</td>
+                                            </tr>
+                                            <tr>
+                                                <th>36 </th>
+                                                <td> 1053769809</td>
+                                                <td> 55143156</td>
+                                                <td> 2014-12-01 00:00:04</td>
+                                                <td> 172.56.xxx.xxx</td>
+                                                <td> 70643</td>
+                                                <td> 28333</td>
+                                                <td> 31</td>
+                                                <td> Manhattan New York, NY</td>
+                                                <td> United States</td>
+                                                <td> US</td>
+                                                <td>...</td>
+                                                <td> 12</td>
+                                                <td> T-MOBILE USA</td>
+                                                <td> 1</td>
+                                                <td> t-mobile</td>
+                                                <td> US</td>
+                                                <td> 310</td>
+                                                <td> 260</td>
+                                                <td> iPhone5S</td>
+                                                <td> 8.1.1</td>
+                                                <td> 2</td>
+                                            </tr>
+                                            <tr>
+                                                <th>110</th>
+                                                <td> 1053769903</td>
+                                                <td> 55143161</td>
+                                                <td> 2014-12-01 00:00:15</td>
+                                                <td> 166.170.xxx.xxx</td>
+                                                <td> 10018</td>
+                                                <td> 6074</td>
+                                                <td> 39</td>
+                                                <td> Los Angeles, CA</td>
+                                                <td> United States</td>
+                                                <td> US</td>
+                                                <td>...</td>
+                                                <td> 12</td>
+                                                <td> AT&amp;T Wireless</td>
+                                                <td> 1</td>
+                                                <td> at&amp;t</td>
+                                                <td> US</td>
+                                                <td> 310</td>
+                                                <td> 410</td>
+                                                <td> iPhone5S</td>
+                                                <td> 8.1.1</td>
+                                                <td> 2</td>
+                                            </tr>
+                                            <tr>
+                                                <th>139</th>
+                                                <td> 1053769937</td>
+                                                <td> 55123993</td>
+                                                <td> 2014-12-01 00:00:18</td>
+                                                <td> 166.171.xxx.xxx</td>
+                                                <td> 24819</td>
+                                                <td> 18440</td>
+                                                <td> 66</td>
+                                                <td> Charlotte, NC</td>
+                                                <td> United States</td>
+                                                <td> US</td>
+                                                <td>...</td>
+                                                <td> 12</td>
+                                                <td> AT&amp;T Wireless</td>
+                                                <td> 1</td>
+                                                <td> at&amp;t</td>
+                                                <td> US</td>
+                                                <td> 310</td>
+                                                <td> 410</td>
+                                                <td> iPhone5S</td>
+                                                <td> 8.1.1</td>
+                                                <td> 1</td>
+                                            </tr>
+                                            <tr>
+                                                <th>243</th>
+                                                <td> 1053770064</td>
+                                                <td> 51721524</td>
+                                                <td> 2014-12-01 00:00:32</td>
+                                                <td> 172.56.xxx.xxx</td>
+                                                <td> 50966</td>
+                                                <td> 10880</td>
+                                                <td> 39</td>
+                                                <td> Dallas, TX</td>
+                                                <td> United States</td>
+                                                <td> US</td>
+                                                <td>...</td>
+                                                <td> 12</td>
+                                                <td> T-MOBILE USA</td>
+                                                <td> 1</td>
+                                                <td> t-mobile</td>
+                                                <td> US</td>
+                                                <td> 310</td>
+                                                <td> 260</td>
+                                                <td> iPhone5S</td>
+                                                <td> 8.1.2</td>
+                                                <td> 1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p>5 rows × 31 columns</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>Now let&#39;s slice out the carrier names and find out which carriers were most popular during the test.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[148]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">carriers</span> <span class="o">=</span> <span class="n">us_tests</span><span class="p">[</span><span class="s">&#39;carrier_name&#39;</span><span class="p">]</span>
+<span class="c"># Yes, easy as that!</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[149]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="c"># Let&#39;s make a quick histogram, so we&#39;ll pull in a few more libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[150]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="c"># These lines adjust the figures that will appear under code cells. We&#39;re also resizing the figure to be larger.</span>
+<span class="o">%</span><span class="k">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">pylab</span>
+<span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[151]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">carrs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">carrier</span> <span class="ow">in</span> <span class="n">carriers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">carrier</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">carrs</span><span class="p">:</span>
+        <span class="n">carrs</span><span class="p">[</span><span class="n">carrier</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">carrs</span><span class="p">[</span><span class="n">carrier</span><span class="p">]</span> <span class="o">=</span> <span class="n">carrs</span><span class="p">[</span><span class="n">carrier</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[152]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">carrs</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt output_prompt">
+                                Out[152]:</div>
+
+
+                            <div class="output_text output_subarea output_pyout">
+                                <pre>
+{&apos;aio&apos;: 1,
+ &apos;at&amp;t&apos;: 26,
+ &apos;cricket&apos;: 2,
+ &apos;movistar&apos;: 1,
+ &apos;sprint&apos;: 11,
+ &apos;stc&apos;: 2,
+ &apos;t-mobile&apos;: 29,
+ &apos;tfw&apos;: 1,
+ &apos;verizon&apos;: 11}
+</pre>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>Now at this point our data set is limited to under 100, so we may not be able to provide key insights. But, with a larger data set, these exact same steps will produce a more meaningful story. Keep that in mind!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[153]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carrs</span><span class="p">)),</span> <span class="n">carrs</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">align</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carrs</span><span class="p">)),</span> <span class="n">carrs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt"></div>
+
+
+                            <div class="output_png output_subarea ">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAksAAAHfCAYAAABAopzKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAG99JREFUeJzt3Xu4bGddH/DvLzmoyD0iScRAvFVpn1QiBVFRtlptniqX
+esEGldhaRa1AvbTgNUdrHxDFenuKxWJIKSJ4AQk+aELMQCg3gYSERIRqQsWSY5GgQaogefvHrJ1M
+tvv89jn7NnvO/nye5zxnzZp31vzWrHfWfNe71syuMUYAANjcacsuAADgIBOWAAAawhIAQENYAgBo
+CEsAAA1hCQCg0YalqvqEqnpTVV1bVTdW1TOn+WdU1RVV9a6quryq7rs/5QIA7K/a6neWquoTxxgf
+rqojSV6X5PuTPDbJ+8cYz66qpye53xjjGXtfLgDA/tryNNwY48PT5MclOT3JrZmHpUun+Zcmefye
+VAcAsGRbhqWqOq2qrk1yLMlVY4wbkpw5xjg2NTmW5Mw9rBEAYGmObNVgjHF7kodW1X2S/F5VfemG
++0dV/b1zeZvNAwA4qMYYtdn8E/423BjjL5P8TpKHJTlWVWclSVWdneTPj/OYU/bfxRdfvPQarJ/1
+O4zrdyqvm/Vb/X/Wb3X/dbb6Ntz917/pVlV3T/IVSa5J8ookF03NLkry8hMNXQAAq2Sr03BnJ7m0
+qk7LPFi9cIxxZVVdk+SlVfWtSW5O8oS9LRMAYDnasDTGuD7J520y/wNJ/uleFbUK1tbWll3CnrJ+
+q+1UXr9Ted0S67fqrN+pacvfWdr2gqvGXi0bAGA3VVXGTi/wBgA4jIQlAICGsAQA0BCWAAAawhIA
+QENYAgBoCEsAAA1hCQCgISwBADS2+ttwwB6p2vSHYg88v8wPHDbCEizVqgWP1Qx4ADvhNBwAQENY
+AgBoCEsAAA1hCQCgISwBADSEJQCAhrAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUA
+gIawBADQEJYAABrCEgBAQ1gCAGgISwAADWEJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBo
+CEsAAA1hCQCgISwBADSEJQCAhrAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIaw
+BADQEJYAABrCEgBAQ1gCAGgISwAAjSPLLgCAg6eqll3CSRtjLLsETlHCEgDHsUrhY/XCHavDaTgA
+gIawBADQEJYAABrCEgBAQ1gCAGgISwAADWEJAKAhLAEANIQlAIBGG5aq6pyquqqqbqiqd1TVU6f5
+R6vqvVV1zfTvgv0pFwBgf1X3t3Sq6qwkZ40xrq2qeyZ5a5LHJ3lCktvGGD/TPHb4Oz1wfPO/vbVq
+75Hy97cOidXrn/omO1NVGWNs+ndz2r8NN8a4Jckt0/SHquoPkzxwfbm7WiUAwAF0wtcsVdW5Sc5P
+8sZp1lOq6u1V9fyquu8e1AYAsHTtyNK66RTcbyR52jTC9NwkPz7d/R+TPCfJt2583NGjR++YXltb
+y9ra2g7LBQDYudlsltlsdkJt22uWkqSq7pbklUleNcb42U3uPzfJZWOM8zbMd80SNFbvmpDEdSGH
+x+r1T32TnemuWdrq23CV5PlJblwMSlV19kKzf5Hk+t0oFADgoNnq23CPSvLaJNflzkOMH0xyYZKH
+TvNuSvLkMcaxDY81sgSN1TtyTxy9Hx6r1z/1TXamG1na8jTcDp5UWILG6n0YJT6QDo/V65/6Jjuz
+7dNwAACHnbAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBA
+Q1gCAGgISwAADWEJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSE
+JQCAhrAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gC
+AGgISwAADWEJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSEJQCA
+hrAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gCAGgI
+SwAADWEJAKAhLAEANIQlAIBGG5aq6pyquqqqbqiqd1TVU6f5Z1TVFVX1rqq6vKruuz/lAgDsrxpj
+HP/OqrOSnDXGuLaq7pnkrUken+RfJXn/GOPZVfX0JPcbYzxjw2NHt2w47Koqyaq9Ryre14fD6vVP
+fZOdqaqMMWqz+9qRpTHGLWOMa6fpDyX5wyQPTPLYJJdOzS7NPEABAJxyTviapao6N8n5Sd6U5Mwx
+xrHprmNJztz1ygAADoAjJ9JoOgX3m0meNsa4bT48OzfGGFW16djn0aNH75heW1vL2traTmoFANgV
+s9kss9nshNq21ywlSVXdLckrk7xqjPGz07x3JlkbY9xSVWcnuWqM8TkbHueaJWis3jUhietCDo/V
+65/6Jjuz7WuWav5ueX6SG9eD0uQVSS6api9K8vLdKBQA4KDZ6ttwj0ry2iTX5c5DjB9I8uYkL03y
+oCQ3J3nCGOODGx5rZAkaq3fknjh6PzxWr3/qm+xMN7K05Wm4HTypsASN1fswSnwgHR6r1z/1TXZm
+26fhAAAOO2EJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSEJQCA
+hrAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gCAGgI
+SwAADWEJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSEJQCAhrAE
+ANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gCAGgISwAA
+DWEJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSEJQCAhrAEANAQ
+lgAAGsISAEBDWAIAaAhLAACNLcNSVf1KVR2rqusX5h2tqvdW1TXTvwv2tkwAgOU4kZGlS5JsDEMj
+yc+MMc6f/v3u7pcGALB8W4alMcbVSW7d5K7a/XIAAA6WnVyz9JSqentVPb+q7rtrFQEAHCDbDUvP
+TfJpSR6a5H1JnrNrFQEAHCBHtvOgMcafr09X1X9Lctlm7Y4ePXrH9NraWtbW1rbzdAAAu2o2m2U2
+m51Q2xpjbN2o6twkl40xzptunz3GeN80/T1JHj7GeOKGx4wTWTYcVlWV+XclVknF+/pwWL3+qW+y
+M1WVMcam12NvObJUVS9O8ugk96+qP01ycZK1qnpo5u+km5I8eRfrBQA4ME5oZGlbCzayBK3VO3JP
+HL0fHqvXP/VNdqYbWfIL3gAADWEJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1h
+CQCgISwBADSEJQCAhrAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYA
+ABrCEgBAQ1gCAGgISwAADWEJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCg
+ISwBADSEJQCAhrAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrC
+EgBAQ1gCAGgISwAADWEJAKAhLAEANIQlAICGsAQA0BCWAAAawhIAQOPIsgtgZ6pq2SWctDHGsksA
+Djn7Tk6GsHRKWKU30OrtoIBTlX0nJ8ZpOACAhrAEANAQlgAAGsISAEBDWAIAaAhLAAANYQkAoCEs
+AQA0hCUAgMaWYamqfqWqjlXV9QvzzqiqK6rqXVV1eVXdd2/LBABYjhMZWbokyQUb5j0jyRVjjH+Q
+5MrpNgDAKWfLsDTGuDrJrRtmPzbJpdP0pUkev8t1AQAcCNu9ZunMMcaxafpYkjN3qR4AgAPlyE4X
+MMYYVbXpn24+evToHdNra2tZW1vb6dMBAOzYbDbLbDY7obY1xqY5566Nqs5NctkY47zp9juTrI0x
+bqmqs5NcNcb4nA2PGSeybHamqpKs0utc0S/mVm/bJbbf4bF6/fPk+uapvn6cvKrKGKM2u2+7p+Fe
+keSiafqiJC/f5nIAAA60LUeWqurFSR6d5P6ZX5/0o0l+O8lLkzwoyc1JnjDG+OCGxxlZ2geOjlbX
+6m27xPY7PFavfxpZYme6kaUTOg23zScVlvaBN/zqWr1tl9h+h8fq9U9hiZ3Zi9NwAACHgrAEANAQ
+lgAAGsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gCAGgISwAADWEJ
+AKAhLAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSEJQCAhrAEANAQlgAA
+GsISAEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gCAGgISwAADWEJAKAh
+LAEANIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSEJQCAhrAEANAQlgAAGsIS
+AEBDWAIAaAhLAAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gCAGgISwAADWEJAKAhLAEA
+NIQlAIDGkZ08uKpuTvJXST6W5KNjjEfsRlEAAAfFjsJSkpFkbYzxgd0oBgDgoNmN03C1C8sAADiQ
+dhqWRpJXV9VbqurbdqMgAICDZKen4b5ojPG+qvrkJFdU1TvHGFev33n06NE7Gq6trWVtbW2HTwcA
+sHOz2Syz2eyE2tYYY1eetKouTvKhMcZzpttjt5bN8VVV5gN8q6KiX8yt3rZLbL/DY/X658n1zVN9
+/Th5VZUxxqaXFm37NFxVfWJV3WuavkeSr0xy/XaXBwBwEO3kNNyZSV42T+c5kuRFY4zLd6UqAIAD
+YtdOw/29BTsNty8MJa+u1dt2ie13eKxe/3Qajp3Zk9NwAACHgbAEANAQlgAAGsISAEBDWAIAaAhL
+AAANYQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gCAGgISwAADWEJAKAhLAEANIQlAICGsAQA
+0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSEJQCAhrAEANAQlgAAGsISAEBDWAIAaAhLAAAN
+YQkAoCEsAQA0hCUAgIawBADQEJYAABrCEgBAQ1gCAGgISwAADWEJAKAhLAEANI4su4C9VlXLLmFb
+xhjLLuFAWMXtZ9sBnFpO+bA0t2ofXqsXEPbWKm0/2w7gVOM0HABAQ1gCAGgISwAADWEJAKAhLAEA
+NIQlAICGsAQA0BCWAAAawhIAQENYAgBoCEsAAA1hCQCgISwBADSOLLsA4NRUVcsuYVvGGCfU7lRf
+P1aXvrn7hCVgDx3cnd/mTvZD5lRfP1aXvrmbnIYDAGgISwAADWEJAKAhLAEANIQlAICGsAQA0BCW
+AAAawhIAQENYAgBobDssVdUFVfXOqnp3VT19N4taDbNlF7DHZssuYI/Nll3AHpstu4A9NFt2AXts
+tuwC9ths2QXssdmyC9hjs2UXsBTbCktVdXqSX0xyQZJ/mOTCqnrIbhZ28M2WXcAemy27gD02W3YB
+e2y27AL20GzZBeyx2bIL2GOzZRewx2bLLmCPzZZdwFJsd2TpEUn+1xjj5jHGR5P8WpLH7V5ZAAAH
+w3bD0gOT/OnC7fdO8wAATik1xsn/ZeKq+tokF4wxvm26/U1JPn+M8ZSFNqv2J48BgENsjFGbzT+y
+zeX9WZJzFm6fk/no0pZPCACwSrZ7Gu4tST6rqs6tqo9L8g1JXrF7ZQEAHAzbGlkaY/xdVX13kt9L
+cnqS548x/nBXKwMAOAC2dc0SAMBh4Re8G1X1mO4HN6fTkNefxPIed9B/j6qqfqeq7r3sOvZKVf27
+qrr7sutYVFX3qarv3KNlf+g483+sqr5smp5V1cP24vn3wiHoo0+uqm9u7n90VX3Bfta0E1X1gxtu
+37+qrqqqt1fVm6rqHgv3PbiqLtz/KnfXVp8dU5sDua4b90dV9VNV9Y6q+sll1rVsRpaOo6pOH2N8
+bIs25ya5bIxx3gku8wVT+9/ccYG7rKoqScYp3iGq6qYk/2SM8RfLrmXdyfajk1z2bWOMe23R5qok
+3zfGeNtuPz+7r6qOJrltjPGck3jMkTHG3+1dVe1z36UPVtWPJDltjPFjVXV2kvdPv9eXqlrLvC8+
+Zhm17oYT+eyY2q3lAK7rxv1RVX0wyf1O9c+GrRzqkaWqetJ0dHNtVf33qrqkqn6pqt6Y5NlVdVFV
+/cLU9syqetnU9tqqeuSGZX16Vb2tqh5WVZ9RVa+qqrdU1Wur6rOr6guTPCbJT1XVNVX16Xu0Ts+s
+qu9auH20qr6vqv59Vb15Wt+j033nVtUfVdWlSa5Pck5V3VxVn1RV3zHVeU1V3VRVvz895sKquq6q
+rq+qZy08z4eq6iem1+YNVfWAvVi/k1FV95hGIa6d6v3RJJ+S5KqqunJqc0FVvXVq8+ollfqsJJ8x
+vdbPXryjql5QVf9lek3/uKrWqurSqrqxqi5ZaLfpdpnu+5npyPDVVXX/heV+7cZCquorq+r102vy
+0sWj/mWY3nNvmepf/6mSm6vqjGn6e6d1vr6qnraE+s6t+Z99umR6L71oeg3/Z1W9q6oeXlVnVNXL
+p/feG6rqvKo6bXpf3WdhWe+qqgesv2eneU+tqhumx/5qVT04yZOTfM/UXx5VVV9dVW+c9j9XrL/3
+puW8sKpel+TSfXo97rK9quqZSe4+1frCqdnfZvo29RjjfetBafKsJF88td/37blok/3HE6a+95PT
+e+1NVfUZU9sX1PE/O15QVT839Yk/XnjfHZh13WBxf3R5knsmedu0/m9Jkqr63Kq6vao+dbr9x1X1
+CUusee+NMQ7lvyT/KMkfJTljun2/JJdk/q2+9RG3i5L8wjT9kiRPnaZPS3LvJOdmHjI+O8nbkpw3
+3X9lks+cpj8/yZXT9CVJvmaP1+uhSWYLt29I8qQk/3Wh9suSfPFU/8eSPGKh/U3rr8l0+0iS1yb5
+qsyDxnuSfFLmF/ZfmeRxU7vbk3zVNP2TSX7oAGzjr03yvIXb915cvySfnOR/J3nwdPu+S6rzwUmu
+P859lyT51Wn6sUn+auq7lfm3Uj/3BLbLhdP0jyz05zv6YpKrknxekvsneU2Su0/zn57kR5a8De83
+/X/36b12xvo2TPKwJNdN990jyTuSPHSf6zs3yUc3bJPnL2yvlyX5+fXXMcmXJrlmmv7ZJN8yTX9+
+ksun6YuTfO80/WdJ7rbefzfev7HfJvk3SX56mj6a5A+SfPySt9dtG9p83dQvn7zJ4x+d+ajG0vrc
+Qi3H23/8wHT7m9drTfKCHP+z4wVJXjJNPyTJuw/aum5Y77vsjxa33/Qeu1eS707ypiRPnNq/ftl1
+7/W/wzyy9GVJXjrG+ECSjDFuneb/+ph6xQZfmuS5U9vbxxh/Nc1/QJKXJ3niGOP6qrpnki9I8utV
+dU2SX0py1sJy9vT3p8YY1yZ5QFWdXVWfm+TWJOcl+cqpnrdmHu4+c3rIe8YYb24W+fOZh73fSfLw
+JFeNMf5izIeZX5TkS6Z2H5naZHqOc3dzvbbpuiRfUVXPqqpHLWyzdY9M8poxxnuSZIzxwX2vcG6r
+PnHZ9P87ktwyxrhh6qM3ZP46PzzzgLzZdrk986CfJP8jyaOaGh6Z+d96fP3UV56U5EEnvzq76mlV
+dW2SNyT51CSfNc2vzNflt8YY/2+M8ddJfivzg4D9dtOGbbI+Qnl9kk+b6nxhkowxrkrySdN+4iWZ
+/+xKkvzL3LmdFl2X5Fer6hszP7BZt9hnzqmqy6vquiTfn/k2TJKR5BVjjL/d6QqehONtryRJVT0w
+84OpL0vyw1X1NdP866rqXtnj/eNJOt7+48XT/7+W+b4+mb/Wx/vsGJl/RmTMvzV+5jT/IK3roq6u
+1yf5oszfZ8/MfD/zqCRX70NdS7XdH6U8FYxs3ik+3Dxms/YfzPyo/ouTvDPzkZsPjjHOb553r/16
+5kdvZ2W+A35wkmeOMZ632Kjm56b/+ngLqapvSXLOGGP9tN7G16xy5/osDqXfngPQt8YY766q8zMf
+FfuJmk4lLjbJAdthVdVPZF7vGGN83jT7I9P/t2d+CiMLt4/krq99ctftciLzF10xxnjiSRW9R2p+
+TceXJ3nkGONvan5t1eJQf9cf99PGbbK+vUbmI30fy+b97I1JPnM6Nfq4JD++cN96+6/K/APpMUl+
+qKo2u67tFzIfTXplVT068xGldd3+bFedwPZK5h+0rxtjzKrqy5O8qqrOSvInY4zbqg7O2/EE9h/J
+Xftb91p/ZGH64KzkyXtt5v3xQUl+O8kzMn8NXrnMovbDYR5Z+v0kX79w7cMZm7RZ7NRXJvnOqe3p
+dee3cT6S5GuSPKmqLpyOPm6qqq+b2lZV/eOp7W2ZD+XutZckuTDzwPTSzH8P61/XdP1JVT2wqj65
+W0DNvx31fZkPNa/7gySPrvk1TadnfjT8mj2of1fU/OLRvxljvCjJTyc5P/PTWOvb4E1JvmQKjcfr
+A/vhtsyHtjPG+OExxvkLQWkrI8mbc/ztclqSr5+mn5jjHwGOzD+8v2jhOox7VNVnHaf9frh3klun
+D96HZD7ytW5kvi6Pr6q7T3378TmYR7hXJ/nG5I5A8X/HGB+aRiFeluQ/J7lxYXQ7U9tK8qAxxizz
+D6X7ZH79yB39ZXLvJP9nmv6WxUXs9ops4Xjb66NVtX7w9PbM+9gDxhjvSvKUJL+YO0drNq7b0hxn
+/5HcORr4DZmPtGz68BN4igOzrht0dV2d5JsyP5U4knwgyT9P8rp9qm1pln70vyxjjBur6j8leU1V
+fSzJNZnvgBePFBZvPy3J86rqWzM/UvyOJMfmixofrqqvTnJFVd2W+Y7xuVX1w0nulvmO4LrMh21/
+uaqekuTrxxh/sofrds8k7x1jHJvqekiSN0xHbrdl3uE3ru/6OleSf5v5dVxXTY/5gzHGt1fVMzK/
+xqWSvHKMcdnC4xaXcRC+OXFe5hfUrx/tf2eSL0zyu1X1Z2OML6+qb0/yW1V1Wubb85/td5FjjL+Y
+Lv68Psmrxhj/YWOT40yvP/6WZrv8dZJHTH3xWO7c0W9Wx/un0cQXV9XHT7N/KMm7t7Neu+B3k3xH
+Vd2Y+fWFb5jmjyQZY1xT82+Yrp9G/uUxxtv3vcrN30OL0z+W5Feq6u2Zb4+LFu5/SeYHIYvz1h93
+epIX1vwi8Eryc2OMv6yqy5L8RlU9LvOwcTTz0/63Zn4Q+OCFZezn+/B42+t5Sa6rqreOMb65qi5O
+8uqq+miSWzIP98+qqrdmHqY+Np3Ku2SM8XP7WP9GG/cf35XkN5Lcb9qWf5P5Qem6bh+42fRBWtc7
+bNwfZaH2McZ7ps+D106zrk7yKWOMv9z/SveXnw4AgBNQ858eedj6ta4cHof5NBwAnAyjC4eUkSUA
+gIaRJQCAhrAEANAQlgAAGsISAEBDWAIAaPx/Cf7+UF3CFs4AAAAASUVORK5CYII=
+">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>We can change the colors and add labels, but we&#39;ll skip that for now. It looks like the big carriers are represented pretty well, so let&#39;s find out the average speed for each.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[154]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">test</span> <span class="o">=</span> <span class="n">us_tests</span><span class="p">[</span><span class="s">&#39;download_kbps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">0.008</span><span class="p">)</span>
+<span class="n">test</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt output_prompt">
+                                Out[154]:</div>
+
+
+                            <div class="output_text output_subarea output_pyout">
+                                <pre>
+5       37.552
+36     565.144
+110     80.144
+139    198.552
+243    407.728
+314     72.080
+374     59.536
+386      3.720
+396     51.032
+398     94.184
+405     35.328
+456     66.440
+489    128.784
+518    138.496
+802    382.968
+...
+3724     67.976
+3822    276.064
+3842    175.640
+4122     47.272
+4136     28.048
+4277     67.088
+4316    179.664
+4491    241.304
+4583    170.384
+4633    376.896
+4695     50.680
+4947     46.304
+4974     18.400
+4981      3.416
+4997     31.032
+Name: download_kbps, Length: 84, dtype: float64
+</pre>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[155]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">ofinterest</span> <span class="o">=</span> <span class="n">carrs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">carrier</span> <span class="ow">in</span> <span class="n">ofinterest</span><span class="p">:</span>
+    <span class="c"># Slice out carrier data</span>
+    <span class="n">carrier_data</span> <span class="o">=</span> <span class="n">us_tests</span><span class="p">[</span><span class="n">us_tests</span><span class="p">[</span><span class="s">&#39;carrier_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">carrier</span><span class="p">]</span>
+    <span class="n">latency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">carrier_data</span><span class="p">[</span><span class="s">&#39;latency&#39;</span><span class="p">])</span>
+    <span class="n">download_speed_mbs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">carrier_data</span><span class="p">[</span><span class="s">&#39;download_kbps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">0.008</span><span class="p">))</span>
+    <span class="c"># Let&#39;s repurpose our old dictionary to contain the information we want.</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">carrs</span><span class="p">[</span><span class="n">carrier</span><span class="p">]</span>
+    <span class="n">carrs</span><span class="p">[</span><span class="n">carrier</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">latency</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">download_speed_mbs</span><span class="p">),</span> <span class="n">count</span><span class="p">]</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[156]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="c"># To show off Pandas&#39; flexibility, let&#39;s make a DataFrame out of our new dictionary!</span>
+<span class="n">final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">carrs</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s">&quot;index&quot;</span><span class="p">)</span> <span class="c"># Make sure to orient our keys as the index</span>
+<span class="n">final</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt output_prompt">
+                                Out[156]:</div>
+
+                            <div class="output_html rendered_html output_subarea output_pyout">
+                                <div style="max-height:1000px;max-width:1500px;overflow:auto;">
+                                    <table border="1" class="dataframe">
+                                        <thead>
+                                            <tr style="text-align: right;">
+                                                <th></th>
+                                                <th>0</th>
+                                                <th>1</th>
+                                                <th>2</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>cricket</th>
+                                                <td> 83.500000</td>
+                                                <td> 25.396000</td>
+                                                <td> 2</td>
+                                            </tr>
+                                            <tr>
+                                                <th>verizon</th>
+                                                <td> 59.727273</td>
+                                                <td> 209.888727</td>
+                                                <td> 11</td>
+                                            </tr>
+                                            <tr>
+                                                <th>stc</th>
+                                                <td> 570.500000</td>
+                                                <td> 54.016000</td>
+                                                <td> 2</td>
+                                            </tr>
+                                            <tr>
+                                                <th>t-mobile</th>
+                                                <td> 67.000000</td>
+                                                <td> 131.500414</td>
+                                                <td> 29</td>
+                                            </tr>
+                                            <tr>
+                                                <th>aio</th>
+                                                <td> 99.000000</td>
+                                                <td> 66.440000</td>
+                                                <td> 1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[157]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="c"># Now let&#39;s generate some plots!</span>
+<span class="n">latencies</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">speeds</span> <span class="o">=</span> <span class="n">final</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carrs</span><span class="p">)),</span> <span class="n">latencies</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carrs</span><span class="p">)),</span> <span class="n">final</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Latencies of Carriers&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt"></div>
+
+
+                            <div class="output_png output_subarea ">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlIAAAHpCAYAAABJOtJYAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XuYZFV97vHvCyNKlKuX4SICKkTJY7wd0EQ9dqIhJCrw
+JF7QqGhMjJqoJzGJoEbGPCaiyTlq4jGJRmEOUeJ4DXhlQNpLVBAFQUcCXkYdlVEUFG8R5Hf+2Kuh
+aPs2a6a7unu+n+epp3ftvfbea9deVfXWWruqU1VIkiRp2+0y7gpIkiStVAYpSZKkTgYpSZKkTgYp
+SZKkTgYpSZKkTgYpSZKkTgYpSWOR5OQkr1/ifT4zydYk30+yz1Lue6QOS37ckhZP/B0paXVKshl4
+WlWdt43rTQJnVNUbFqNe45LkVsD3gKOq6rOzlNkNeAHwBOAA4NvAB4G/rqqvLFVdJa0c9khJq1e1
+W896q9F+wG2Az89R5m3AI4HHA3sC9wYuAh62rTtLsmaGebtu63ZG1k2S9K4vaXEYpKSdTJK9k7w7
+ybeSfDfJ2UkObMv+BngI8Jok1yX5hzb/Hkk2JvlOksuTPGZke6cn+b9tm99P8okkdx1Z/ksj616V
+5OQ2f12SM0bKPTDJx5Jck+SSJA8dWfaUJF9s2/9SkifMcmy3TvKqJF9vt1cm2S3J4dwcoK5Ncu4M
+6z4ceDhwXFV9qqpurKrvV9U/VdUbW5mnJtnU6vHFJE8fWX8iyZYkf5nkm8Abk5yS5G1JzkjyPeAp
+23jck0lemuQ/gR8Cd13oYyFpaRikpJ3PLsAbgLu024+B1wBU1QuBjwB/XFV7VNVzktwW2Aj8G3BH
+4ATgtUnuObLNxwHrgH2ALwB/A5BkD+Bc4L3A/sDdgamhxpt6vlqQezfDENo+wJ8Db09y+7b/VwPH
+VNWewK8Al8xybC8EjmLoSbp3m35RVV0B/FIrs1dVPXyGdR8OXFBVX5/9oWMr8IhWj6cCr0xy35Hl
+a9tjcBfg6UCAY4G3VtVewJsWetwj23wi8AfA7YCrt+GxkLQEDFLSTqaqvltV76yqn1TVD4C/BR46
+rdjoENIjgS9X1frWS3MJ8A7gMSNl3lFVF1XVzxjCwn1G1v1GVb2yqn5aVT+oqgtn2McTgfdW1ftb
+Hc9lGFJ7BEPwuBG4V5Ldq2prVW2a5fCewBBKrq6qq4GXAE+aYX8zuT1w1VwFquq9VfXlNv1h4ByG
+HrwpNwKnVNX1VfWTNu9jVXVWW+cn23DctGM/vao+X1U3Ajew8MdC0hIwSEk7mSS/kORfkmxuw00f
+Avaadv3N6HVSBwMPaENP1yS5hiGwrB0pu3Wk/I8Zek8ADgK+tIBqHQw8Zto+HgTsV1U/Yujxegbw
+jTaE+IuzbOcAYPSi8K+2eQtxNUOv2ayS/FYbuvxOq+NvMwSwKd+uqp9OW23LHJuc9bhHynxtaqKq
+fsjCHwtJS8AgJe18ngcczvDttb0YeqPCzT0l0y82/yrwoaraZ+S2R1X98QL29VXgrvOWGsqdMcM+
+XgFQVedU1dEMAeNyYLafD/gGcMjI/bu0eQtxLnDU1PVi0yW5NfB24BXAndpQ3Hu5ZQ/T9Mduvgv+
+5zzumba5DY+FpCVgkJJWt92S3Gbktoaht+jHwPeS7AucMm2drcDdRu6/Gzg8yROT3Krdjkxyj7Z8
+riGz9wD7J3luuxB8jyRHzVDu34BHJTk6ya6trhNJDkxypyTHtWulrme46Ppns+zvTOBFSe6Q5A7A
+i4EzZil7C+1nIjYC70xyvyRrWn2fkeSpwK2A3Rh6rm5M8lvA0fNsdr7hxFmPe6ZtbONjIWkJGKSk
+1e29wI9Gbi8GXgXszhAIPga8j1v2erwaeHSGb/S9ql1HdTTDReZfB74JvIwhVMDMvS4FUFXXAb8B
+PKqtdwUwMX29qtoCHMfwG07fYuipeR5DiNgF+NO27+8wXJP0zFmO96UM1xhd2m4XtXm3qNccHs3w
+mL0FuBa4DLgfsLE9Ds8BNgDfZfiJhP+Y6bin3Z913jzHPdM2t+WxkLQEFvSDnEn2Bv6V4VsvxfBt
+lSsZXmwOBjYDj62qa1v5k4HfZ/ik9JyqOmcxKi9JkjROC+2RejXDN0vuCfwyw7j8SQyf0g5n+Drz
+SQBJjmC4GPII4BiGr0nb8yVJkladeQNOkr2Ah0z9IF1V3VBV32P4bZT1rdh64Pg2fRxwZvv672aG
+35SZ6ZoISZKkFW0hPUWHAt9OclqSTyd5fbvQcW1VTX3leSs3fxX6AG75dd8twIzfgpEkSVrJfu5/
+Qc1S5n7An1TVJ5O8ijaMN6WqKslcF1vdYtk8ZSVJkpaVqprxW7gL6ZHaAmypqk+2+29jCFZXJdkP
+IMn+DN84geHbJAeNrH/nNm96hVbt7ZRTThl7HTw+j29nOzaPb+XfPL6Ve1vNx1Y1d9/PvEGqqq4C
+vtb+6ScM/4/qc8DZwIlt3onAu9r0WcAJ7R+FHgocBlyIJEnSKrOQoT2AZwNvSrIb8EWGnz/YFdiQ
+5Gm0nz8AqKpNSTYAmxj+L9Szar44J0mStAItKEhV1WeAI2dYNNN/UKeq/pbhH6HulCYmJsZdhUXl
+8a1cq/nYwONb6Ty+lWs1H9t8FvSDnDt8p4mdVJIkaUVIQm3HxeaSJEmagUFKkiSpk0FKkiSpk0FK
+kiSpk0FKkiSpk0FKkiSpk0FKkiSpk0FKkiSpk0FKkiSpk0FKkiSpk0FKkiSpk0FKkiSpk0FKkiSp
+k0FKkiSpk0FKkiSpk0FKkiSp05pxV0DqkWTcVehSVeOugiRpBzJIaQVbaaFkZYY/SdLsHNqTJEnq
+ZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCS
+JEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnq
+ZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCS
+JEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnq
+ZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqZJCSJEnqtKAglWRzkkuT
+XJzkwjZv3yQbk1yR5Jwke4+UPznJlUkuT3L0YlVekiRpnBbaI1XARFXdt6qOavNOAjZW1eHAee0+
+SY4AHgccARwDvDaJPV+SJGnV2ZaAk2n3jwXWt+n1wPFt+jjgzKq6vqo2A18AjkKSJGmV2ZYeqXOT
+XJTkD9u8tVW1tU1vBda26QOALSPrbgEO3O6aSpIkLTNrFljuQVX1zSR3BDYmuXx0YVVVkppj/Z9b
+tm7dupumJyYmmJiYWGBVJEmSFs/k5CSTk5MLKpuqufLPDCskpwA/AP6Q4bqpq5LsD5xfVfdIchJA
+VZ3ayr8fOKWqLhjZRm3rfqVRSZghny9zwXYvSStPEqpq+iVOwAKG9pL8QpI92vRtgaOBy4CzgBNb
+sROBd7Xps4ATkuyW5FDgMODC7TsESZKk5WchQ3trgXcOPQCsAd5UVeckuQjYkORpwGbgsQBVtSnJ
+BmATcAPwLLufJEnSarTNQ3s7ZKcO7Wk7ObQnSVoq2zW0J0mSpJkZpCRJkjoZpCRJkjoZpCRJkjoZ
+pCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJ
+kjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZ
+pCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJkjoZpCRJ
+kjoZpCRJkjqtGXcFJGm1STLuKmyzqhp3FaQVySAlSYtiJQWTlRf8pOXCoT1JkqROBilJkqROBilJ
+kqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqRO
+BilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJ
+kqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROCwpSSXZNcnGSs9v9
+fZNsTHJFknOS7D1S9uQkVya5PMnRi1VxSZKkcVtoj9RzgU1AtfsnARur6nDgvHafJEcAjwOOAI4B
+XpvEXi9JkrQqzRtyktwZ+G3gX4G02ccC69v0euD4Nn0ccGZVXV9Vm4EvAEftyApLkiQtFwvpLXol
+8BfAjSPz1lbV1ja9FVjbpg8AtoyU2wIcuL2VlCRJWo7WzLUwySOBb1XVxUkmZipTVZWkZlo2VWSm
+mevWrbtpemJigomJGTcvSZK0pCYnJ5mcnFxQ2VTNnoGS/C3wJOAG4DbAnsA7gCOBiaq6Ksn+wPlV
+dY8kJwFU1alt/fcDp1TVBdO2W3PtV5pPEmbJ6MtYsN3vHFZe+7RtSnNJQlVlpmVzDu1V1Quq6qCq
+OhQ4AfhgVT0JOAs4sRU7EXhXmz4LOCHJbkkOBQ4DLtwRByFJkrTczDm0N4OpjyynAhuSPA3YDDwW
+oKo2JdnA8A2/G4Bn2fUkSZJWqzmH9hZtpw7taTutvKETcPhk57Hy2qdtU5pL99CeJEmSZmeQkiRJ
+6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQ
+kiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ
+6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQ
+kiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ
+6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQ
+kiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ
+6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6mSQkiRJ6jRnkEpymyQXJLkkyaYkL2vz902y
+MckVSc5JsvfIOicnuTLJ5UmOXuwDkCRJGpdU1dwFkl+oqh8lWQN8FPhz4Fjg6qp6RZLnA/tU1UlJ
+jgDeDBwJHAicCxxeVTdO22bNt19pLkmAldaGgu1+57Dy2qdtU5pLEqoqMy2bd2ivqn7UJncDdgWu
+YQhS69v89cDxbfo44Myqur6qNgNfAI7qr7okSdLyNW+QSrJLkkuArcD5VfU5YG1VbW1FtgJr2/QB
+wJaR1bcw9ExJkiStOmvmK9CG5e6TZC/gA0l+bdrySjJXn7D9xZIkaVWaN0hNqarvJXkPcH9ga5L9
+quqqJPsD32rFvg4cNLLandu8n7Nu3bqbpicmJpiYmNi2mkuSJC2CyclJJicnF1R2zovNk9wBuKGq
+rk2yO/AB4CXAbwLfqaqXJzkJ2HvaxeZHcfPF5neffmW5F5tre628i3nBC3p3Hiuvfdo2pbnMdbH5
+fD1S+wPrk+zCcD3VGVV1XpKLgQ1JngZsBh4LUFWbkmwANgE3AM8yMUmSpNVq3p8/WJSd2iOl7bTy
+PvGDn/p3Hiuvfdo2pbls188fSJIkaWYGKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmS
+pE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4G
+KUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmS
+pE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4G
+KUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmS
+pE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4G
+KUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmSpE4GKUmS
+pE4GKUmSpE4GKUmSpE7zBqkkByU5P8nnknw2yXPa/H2TbExyRZJzkuw9ss7JSa5McnmSoxfzACRJ
+ksYlVTV3gWQ/YL+quiTJ7YBPAccDTwWurqpXJHk+sE9VnZTkCODNwJHAgcC5wOFVdePINmu+/Upz
+SQKstDYUbPc7h5XXPm2b0lySUFWZadm8PVJVdVVVXdKmfwB8niEgHQusb8XWM4QrgOOAM6vq+qra
+DHwBOGq7jkCSJGkZ2qZrpJIcAtwXuABYW1Vb26KtwNo2fQCwZWS1LQzBS5IkaVVZs9CCbVjv7cBz
+q+q6oet6UFWVZK5+4Z9btm7dupumJyYmmJiYWGhVJEmSFs3k5CSTk5MLKjvvNVIASW4FvBt4X1W9
+qs27HJioqquS7A+cX1X3SHISQFWd2sq9Hzilqi4Y2Z7XSGm7rLxrUMDrUHYeK6992jaluWzXNVIZ
+XhHeAGyaClHNWcCJbfpE4F0j809IsluSQ4HDgAt7Ky9JkrRcLeRbew8GPgxcys0fsU5mCEcbgLsA
+m4HHVtW1bZ0XAL8P3MAwFPiBadu0R0rbZeV94gc/9e88Vl77tG1Kc5mrR2pBQ3s7mkFK22vlvVGB
+b1Y7j5XXPm2b0ly2a2hPkiRJMzNISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJI
+SZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIk
+dTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJI
+SZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdVoz7gpIkqSlkWTc
+VehSVeOuwqwMUpIk7VSWbyiZ2fIOfw7tSZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIk
+dTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJI
+SZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIkdTJISZIk
+dTJISZIkdTJISZIkdTJISZIkdTJISZIkdZo3SCV5Y5KtSS4bmbdvko1JrkhyTpK9R5adnOTKJJcn
+OXqxKi5JkjRuC+mROg04Ztq8k4CNVXU4cF67T5IjgMcBR7R1XpvEXi9JkrQqzRtyquojwDXTZh8L
+rG/T64Hj2/RxwJlVdX1VbQa+ABy1Y6oqSZK0vPT2Fq2tqq1teiuwtk0fAGwZKbcFOLBzH5IkScva
+mu3dQFVVkpqryEwz161bd9P0xMQEExMT21sVSZKk7TY5Ocnk5OSCyqZqrgzUCiWHAGdX1b3a/cuB
+iaq6Ksn+wPlVdY8kJwFU1amt3PuBU6rqgmnbq4XsV5pNEmbJ6MtYsN0PhvO3smzLuVt57dO2ubNY
+eW0TlkP7TEJVzfjC1Tu0dxZwYps+EXjXyPwTkuyW5FDgMODCzn1IWtVqBd0kaWbzDu0lORN4KHCH
+JF8DXgycCmxI8jRgM/BYgKralGQDsAm4AXiWXU+SJGm1WtDQ3g7fqUN72k52T69sK+/8bdu5W+3H
+p5Vr5bVNWA7tczGG9iRJknZ6BilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJ
+kqRO2/1Pi1ey1f7/viRJ0uLaqYPUYCUFk5UX/CRJWs0c2pMkSepkkJIkSepkkJIkSepkkJIkSepk
+kJIkSepkkJIkSerkzx9IktSsxN8XBH9jcJwMUpIk3cJKCyUrM/ytFg7tSZIkdTJISZIkdXJoT1qG
+vE5Dy5VtU7olg5S0bK20F/6V+QarHrZNaYpDe5IkSZ0MUpIkSZ0MUpIkSZ28RmqV8oJQSZIWn0Fq
+VVtpoWRlhj9J0s7LoT1JkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJ
+kqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqRO
+BilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJ
+kqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqROBilJkqRO
+BilJkqROBilJkqROBilJkqROixKkkhyT5PIkVyZ5/mLsY3mbHHcFFtnkuCuwyCbHXYFFNDnuCiyy
+yXFXYJFNjrsCi2xy3BVYZJPjrsAimhx3BcZmhwepJLsCrwGOAY4AHp/knjt6P8vb5LgrsMgmx12B
+RTY57gososlxV2CRTY67AotsctwVWGST467AIpscdwUW0eS4KzA2i9EjdRTwharaXFXXA/8OHLcI
++5EkSRqrxQhSBwJfG7m/pc2TJElaVVJVO3aDye8Cx1TVH7b7TwQeUFXPHimzY3cqSZK0iKoqM81f
+swj7+jpw0Mj9gxh6peatjCRJ0kqyGEN7FwGHJTkkyW7A44CzFmE/kiRJY7XDe6Sq6oYkfwJ8ANgV
+eENVfX5H70eSJGncdvg1UpIkSTsLf9m8U5JHzfVjo21o87Jt2N5xy/33tpK8J8me467HYknyv5Ls
+Pu56jEqyV5JnLtK2fzDL/Jck+fU2PZnk/oux/x1tJ2iff5TkSXMsf2iSX1nKOm2PJC+Ydv8OSc5P
+8pkkFyS57ciyg5M8fulruePN997RyizL453+epTk75J8NsnLx1mvcbNHqkOSXavqZ/OUOQQ4u6ru
+tcBtnt7Kv327K7iDJQlArfLGkuTLwP+oqu+Muy5TtrUdbeO2r6uqPeYpcz7wvKr69I7ev3asJOuA
+66rqf2/DOmuq6obFq9Wc+75F+0vyV8AuVfWSJPsDV7ffIiTJBEM7fNQ46rqjLOS9o5WbYBke7/TX
+oyTXAvus9veG+dgjNYskT26fjC5J8v+SnJbkn5N8AnhFkhOT/GMruzbJO1vZS5I8cNq27prk00nu
+n+RuSd6X5KIkH07yi0l+FXgU8HdJLk5y10U6ppcledbI/XVJnpfkL5Jc2I53XVt2SJL/SrIeuAw4
+KMnmJLdP8oxWz4uTfDnJB9s6j09yaZLLkpw6sp8fJHlpe2w+nuROi3F82yLJbVsPxiWtvi8GDgDO
+T3JeK3NMkk+1MueOqaqnAndrj/UrRhckOT3Ja9tj+sUkE0nWJ9mU5LSRcjOel7bs/7RPlOcmucPI
+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
+">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>Okay, so no surprise here. It looks like Movistar and STC (two popular carriers outside the US) have high latencies. Now let&#39;s check out what we wanted!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cell border-box-sizing code_cell rendered">
+                <div class="input">
+                    <div class="prompt input_prompt">
+                        In&nbsp;[159]:
+                    </div>
+                    <div class="inner_cell">
+                        <div class="input_area">
+                            <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carrs</span><span class="p">)),</span> <span class="n">speeds</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">carrs</span><span class="p">)),</span> <span class="n">final</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Download Speeds of Carriers in Mb/s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Carrier&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Download speed (Mb/s)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="output_wrapper">
+                    <div class="output">
+
+
+                        <div class="output_area">
+                            <div class="prompt"></div>
+
+
+                            <div class="output_png output_subarea ">
+                                <img src="data:image/png;base64,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
+A+E0B0rkuFKxAAAAAElFTkSuQmCC
+">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <h2 id="conclusion">Conclusion</h2>
+                        <hr>
+                        <p>Wow! Looks like Verizon blew out the competition here. We also converted to Mb/s when generating our final data frame, so those are some impressive speeds! I&#39;ll be buying a new iPhone 6 from Verizon, then. :)</p>
+                        <p>Big shoutout goes to <a href="http://www.mindtrove.info">Pete Parente</a> for CSS layout of IPython Notebooks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Footer Section -->
+        <hr>
+        <div class="row" id="footer-section">
+            <div class="col-md-4" id="contact">
+                <h3>Contact</h3>
+                <div>
+                    <i class="fa fa-envelope-o"></i> <a title="Email address" href="mailto:jamesml@cs.unc.edu"> jamesml@cs.unc.edu</a>
+                    <br/>
+                    <i class="fa fa-github"></i> <a title="GitHub account" href="http://github.com/jlmartin9">github.com/jlmartin9</a>
+                    <br/>
+                    <i class="fa fa-twitter"></i> <a title="Twitter account" href="http://twitter.com/jamesmartweets">twitter.com/jamesmartweets</a>
+                    <br/>
+                    <i class="fa fa-instagram"></i> <a title="Instagram account" href="http://instagram.com/jlmartin9">instagram.com/jlmartin9</a>
+                </div>
+            </div>
+
+            <div class="col-md-4" id="latest">
+                <h3>Latest</h3>
+                <a href="hack-night.html">Demo for Hack Night</a>
+            </div>
+
+            <div class="col-md-4" id="spotify">
+                <h3>On Air</h3>
+                <iframe src="https://embed.spotify.com/?uri=spotify:user:1264920469:playlist:5OX11IOf32NYgXbGLVcde7" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+            </div>
+        </div>
+        <!-- End footer section -->
+
+        <hr>
+        <div class="row" id="copyright">
+            <div class="col-md-12">
+            <small>
+            All style and website layout courtesy of <a href="http://www.mindtrove.info">Pete Parente</a>. Website was built from scratch with inspiration drawn from Pete. Content (c) James Martin, 2015.
+            </small>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

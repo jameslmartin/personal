@@ -39,3 +39,8 @@ a:active {
 	color: inherit;
 	margin-right: 1.75em;
 }
+
+#copyright {
+	padding-bottom: 50px;
+	text-align: center;
+}
