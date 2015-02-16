@@ -16,8 +16,8 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href='../css/notebook.css' rel='stylesheet' type='text/css'>
-    <link href='../css/site.css' rel='stylesheet' type='text/css'>
+    <link href='/css/notebook.css' rel='stylesheet' type='text/css'>
+    <link href='/css/site.css' rel='stylesheet' type='text/css'>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -35,6 +35,7 @@
 
 <body>
     <div tabindex="-1" id="notebook" class="border-box-sizing">
+
         <div class="container" id="notebook-container">
 
             <!-- Header Section -->
@@ -42,9 +43,9 @@
                 <h1 class="title"><a href="../">Lucidity</a></h1>
                 <div class="subtitle">Musings presented by James Martin</div>
                 <nav>
-                    <a href="../">Home</a>
-                    <a href="../net-score/">net-score Project</a>
-                    <a href="../about/">About</a>
+                    <a href="/">Home</a>
+                    <a href="../net-score/" target="_blank">net-score Project</a>
+                    <a href="/about/">About</a>
                 </nav>
                 <hr>
             </header>
@@ -54,7 +55,7 @@
                 </div>
                 <div class="inner_cell">
                     <div class="text_cell_render border-box-sizing rendered_html">
-                        <h3>Field notes on cleaning up URLs</h1>
+                        <h3>Field notes on cleaning up URLs</h3>
                         <div class="post-date">15 Feb. 2015</div>
                         <p>So today I wanted to set to cleaning up the URLs for the site. This is a super simple hack, does not take long to complete, and makes your URLs much prettier. My roommate, Chris Hendel (<a href="https://twitter.com/chris_hendel">@chris_hendel</a>), does professional web development for <a href="https://getpebble.com/">Pebble</a>. We discuss quality design in web development quite frequently, and while he is much better than I am with it, we'll often chat about the latest tools and frameworks. I asked him how to change my code so that the filenames do not appear at the end of my URLs, and he told me this is all you have to do:</p>
                         <ol>
@@ -104,37 +105,51 @@
                 </div>
             </div>
         </div>
+        <!-- IPython Notebook Container div -->
     </div>
+    <!-- Notebook div -->
 
-            <!-- Footer Section -->
+    <div class="container">
+        <!-- Footer Section -->
         <hr>
         <div class="row" id="footer-section">
             <div class="col-md-4" id="contact">
                 <h3>Contact</h3>
-                        <div>
-                            <i class="fa fa-envelope-o"></i> <a title="Email address" href="mailto:jamesml@cs.unc.edu"> jamesml@cs.unc.edu</a>
-                            <br/>
-                            <i class="fa fa-github"></i> <a title="GitHub account" href="http://github.com/jlmartin9">github.com/jlmartin9</a>
-                            <br/>
-                            <i class="fa fa-twitter"></i> <a title="Twitter account" href="http://twitter.com/jamesmartweets">twitter.com/jamesmartweets</a>
-                            <br/>
-                            <i class="fa fa-instagram"></i> <a title="Instagram account" href="http://instagram.com/jlmartin9">instagram.com/jlmartin9</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4" id="latest">
-                        <h3>Latest</h3>
-                        <a href="posts/hack-night.html">Demo for Hack Night</a>
-                        <br>
-                        <a href="posts/notes-urls.html">Field notes on cleaning up URLs</a>
-                    </div>
-
-                    <div class="col-md-4" id="spotify">
-                        <h3>On Air</h3>
-                        <iframe src="https://embed.spotify.com/?uri=spotify:user:1264920469:playlist:5OX11IOf32NYgXbGLVcde7" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-                    </div>
+                <div>
+                    <i class="fa fa-envelope-o"></i> <a title="Email address" href="mailto:jamesml@cs.unc.edu"> jamesml@cs.unc.edu</a>
+                    <br/>
+                    <i class="fa fa-github"></i> <a title="GitHub account" href="http://github.com/jlmartin9">github.com/jlmartin9</a>
+                    <br/>
+                    <i class="fa fa-twitter"></i> <a title="Twitter account" href="http://twitter.com/jamesmartweets">twitter.com/jamesmartweets</a>
+                    <br/>
+                    <i class="fa fa-instagram"></i> <a title="Instagram account" href="http://instagram.com/jlmartin9">instagram.com/jlmartin9</a>
                 </div>
-                <!-- End footer section -->
+            </div>
+
+            <div class="col-md-4" id="latest">
+                <h3>Latest</h3>
+                <a href="../hack-night">Demo for Hack Night</a>
+                <br>
+                <a href=".">Field notes on cleaning up URLs</a>
+            </div>
+
+            <div class="col-md-4" id="spotify">
+                <h3>On Air</h3>
+                <iframe src="https://embed.spotify.com/?uri=spotify:user:1264920469:playlist:5OX11IOf32NYgXbGLVcde7" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+            </div>
+        </div>
+        <!-- End footer section -->
+
+        <hr>
+        <div class="row" id="copyright">
+            <div class="col-md-12">
+                <small>
+            All style and website layout courtesy of <a href="http://www.mindtrove.info">Pete Parente</a>. Website was built from scratch with inspiration drawn from Pete. Content (c) James Martin, 2015.
+            </small>
+            </div>
+        </div>
+
+    </div>
 </body>
 
 </html>
