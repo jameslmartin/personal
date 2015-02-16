@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Work and thoughts from the mind of James Martin.">
+    <meta name="author" content="James Martin">
+    <title>Cleaning URLs - Lucidity</title>
+
+    <!--fonts-->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href='../css/notebook.css' rel='stylesheet' type='text/css'>
+    <link href='../css/site.css' rel='stylesheet' type='text/css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": { styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } });
+    </script>
+    <!-- End of mathjax configuration -->
+
+</head>
+
+<body>
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+        <div class="container" id="notebook-container">
+
+            <!-- Header Section -->
+            <header id="siteTitle">
+                <h1 class="title"><a href="../">Lucidity</a></h1>
+                <div class="subtitle">Musings presented by James Martin</div>
+                <nav>
+                    <a href="../">Home</a>
+                    <a href="../net-score/">net-score Project</a>
+                    <a href="../about/">About</a>
+                </nav>
+                <hr>
+            </header>
+
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <h3>Field notes on cleaning up URLs</h1>
+                        <div class="post-date">2 Feb. 2015</div>
+                        <p>So today I wanted to set to cleaning up the URLs for the site. This is a super simple hack, does not take long to complete, and makes your URLs much prettier. My roommate, Chris Hendel (<a href="https://twitter.com/chris_hendel">@chris_hendel</a>), does professional web development for <a href="https://getpebble.com/">Pebble</a>. We discuss quality design in web development quite frequently, and while he is much better than I am with it, we'll often chat about the latest tools and frameworks. I asked him how to change my code so that the filenames do not appear at the end of my URLs, and he told me this is all you have to do:</p>
+                        <ol>
+                            <li>Make folders for each route of your website</li>
+                            <li>Rename the HTML file of each route to be <code>index.html</code>
+                            </li>
+                            <li>Change all the links on your site to open the directory of the route</li>
+                        </ol>
+                        <p>For example, if I wanted to go to my about page from my landing page, the link in the a tag would just be:</p>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>about/</code></pre>
+
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>This way, in the URL bar we see:</p>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>cs.unc.edu/~jamesml/about/</code></pre>
+
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>...instead of the clunky:</p>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code>cs.unc/edu/~jamesml/about.html (or) cs.unc.edu/~jamesml/about/index.html</code></pre>
+
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <p>You just have to make sure you edit <em>all</em> the links in your web pages to avoid 404s. My next hack may be making a small Python script to compile .ipynbs to HTML with better CSS styling. I also may look into a way of serving my posts rather than uploading static web pages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <!-- Footer Section -->
+        <hr>
+        <div class="row" id="footer-section">
+            <div class="col-md-4" id="contact">
+                <h3>Contact</h3>
+                        <div>
+                            <i class="fa fa-envelope-o"></i> <a title="Email address" href="mailto:jamesml@cs.unc.edu"> jamesml@cs.unc.edu</a>
+                            <br/>
+                            <i class="fa fa-github"></i> <a title="GitHub account" href="http://github.com/jlmartin9">github.com/jlmartin9</a>
+                            <br/>
+                            <i class="fa fa-twitter"></i> <a title="Twitter account" href="http://twitter.com/jamesmartweets">twitter.com/jamesmartweets</a>
+                            <br/>
+                            <i class="fa fa-instagram"></i> <a title="Instagram account" href="http://instagram.com/jlmartin9">instagram.com/jlmartin9</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4" id="latest">
+                        <h3>Latest</h3>
+                        <a href="posts/hack-night.html">Demo for Hack Night</a>
+                        <br>
+                        <a href="posts/notes-urls.html">Field notes on cleaning up URLs</a>
+                    </div>
+
+                    <div class="col-md-4" id="spotify">
+                        <h3>On Air</h3>
+                        <iframe src="https://embed.spotify.com/?uri=spotify:user:1264920469:playlist:5OX11IOf32NYgXbGLVcde7" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+                    </div>
+                </div>
+                <!-- End footer section -->
+</body>
+
+</html>
