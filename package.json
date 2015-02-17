@@ -1,0 +1,13 @@
+{
+    "name": "Lucidity",
+    "description": "App for serving web pages",
+    "version": "0.0.1",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/jlmartin9/personal.git"
+    },
+    "dependencies": {
+        "express": "*"
+    }
+}
