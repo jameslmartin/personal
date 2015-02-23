@@ -16,7 +16,7 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href='css/site.css' rel='stylesheet' type='text/css'>
+    <link href='../../css/site.css' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -34,7 +34,53 @@
             <hr>
         </header>
 
-        
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Security concerns in automotive systems</h3>
+                <div class="post-date">18 Feb. 2015</div>
+                <p>On February 18th, I gave a presentation about security vulnerabilities in modern automotive vehicles. The presentation was for a graduate level course led by <a href='http://www.cs.unc.edu/~anderson/'>Jim Anderson</a> on autonomous automotive vehicles. I performed some first-pass research on vulnerabilities that modern cars face, today. Synthesizing the information, I created a presentation that summarized my findings. <a href="security.pdf" target="_blank">Click here</a> to view the full presentation and download the PDF.</p>
+                <hr>
+                <p>Attack surfaces studied:</p>
+                <ul>
+                    <li>OBD-II port (federally mandated in all US vehicles)</li>
+                    <li>Bluetooth channels</li>
+                    <li>Addressable channels through technologies such as OnStar, etc.</li>
+                </ul>
+                <p>Attacks studied:</p>
+                <ul>
+                    <li>Stuxnet-esque worm infecting dealership network / physical attack on dealership, malware installed on OBD-II PassThru devices through shell injection, binaries installed on vehicle ECU</li>
+                    <li>Bluetooth brute force pairing, infect vehicle ECU</li>
+                    <li>Reverse engineered aqLink protocol, input validation bugs of Gateway program leads to easy buffer overflow after buggy authentication. Malware installed via addressable channel over 3G or over phone</li>
+                </ul>
+                <p>Recommendations:</p>
+                <ul>
+                    <li>Sanitize inputs.</li>
+                    <li>Avoid use of unsafe library functions such as <code>strncopy</code>.</li>
+                    <li>Hieriarchical CAN buses by critical/non-critical components instead of bandwidth.</li>
+                    <li>More code transparency, hire security contractors.</li>
+                </ul>
+                <p>Other concerns:</p>
+                <ul>
+                    <li>Privacy concerns with data collection. 
+                        <ul><li>Audio being recorded in car</li>
+                            <li>Driving history</li>
+                            <li>Third party acquisition of mentioned information</li></ul>
+                    <li>Certification process overlooks software that ships with vehicle.</li>
+                    <li>Lack of response from manufacturers.</li>
+                </ul>
+                <p>Main sources:</p>
+                <ul>
+                    <li><a href="http://www.autosec.org/pubs/cars-usenixsec2011.pdf">This study</a> done by USCD.</li>
+                    <li><a href="http://www.markey.senate.gov/imo/media/doc/2015-02-06_MarkeyReport-Tracking_Hacking_CarSecurity%202.pdf">This report</a> from Senator Ed Markey - Democrat, Massachusetts.</li>
+                </ul>
+                <p>Thanks to:</p>
+                <ul>
+                    <li><a href="http://www.cs.unc.edu/~reiter/">Mike Reiter</a></li>
+                    <li><a href="http://cs.unc.edu/~csturton/">Cynthia Sturton</a></li>
+                    <li><a href="http://www.cs.unc.edu/~amos/">Amos Wang</a></li>
+                    <li>Namhoon Kim</li>
+            </div>
+        </div>
 
         <!-- Footer Section -->
         <hr>
