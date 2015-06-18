@@ -2,26 +2,21 @@
 <html>
 
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Work and thoughts from the mind of James Martin.">
     <meta name="author" content="James Martin">
     <title>Hack Night Demo - Lucidity</title>
-
     <!--fonts-->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href='../../css/notebook.css' rel='stylesheet' type='text/css'>
     <link href='../../css/site.css' rel='stylesheet' type='text/css'>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
     <!-- Custom stylesheet, it must be in the same directory as the html file -->
     <!-- Loading mathjax macro -->
     <!-- Load mathjax -->
@@ -31,27 +26,22 @@
         MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": { styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } });
     </script>
     <!-- End of mathjax configuration -->
-
 </head>
 
 <body>
-
     <div tabindex="-1" id="notebook" class="border-box-sizing">
-
         <div class="container" id="notebook-container">
-
             <!-- Header Section -->
             <header id="siteTitle">
                 <h1 class="title"><a href="../../">Lucidity</a></h1>
                 <div class="subtitle">Musings presented by James Martin</div>
                 <nav>
                     <a href="../../">Home</a>
-                    <a href="../../net-score/" target="_blank">net-score Project</a> 
+                    <a href="../../net-score/" target="_blank">net-score Project</a>
                     <a href="../../about/">About</a>
                 </nav>
                 <hr>
             </header>
-
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
                 </div>
@@ -99,15 +89,11 @@
                             <div class="highlight"><pre><span class="o">!</span>ls ../data_samples
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt"></div>
                             <div class="output_subarea output_stream output_stdout output_text">
@@ -120,10 +106,8 @@ iphone_data_sample.csv  stnet_data_sample.csv   wp_data_sample.csv
 </pre>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
@@ -144,15 +128,11 @@ iphone_data_sample.csv  stnet_data_sample.csv   wp_data_sample.csv
                             <div class="highlight"><pre><span class="o">!</span>cat ../data_samples/iphone_col_headers.txt
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt"></div>
                             <div class="output_subarea output_stream output_stdout output_text">
@@ -192,10 +172,8 @@ location_type - 0 = unknown, 1 = GPS, 2 = GeoIP
 </pre>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
@@ -218,11 +196,9 @@ location_type - 0 = unknown, 1 = GPS, 2 = GeoIP
                             <div class="highlight"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -234,11 +210,9 @@ location_type - 0 = unknown, 1 = GPS, 2 = GeoIP
                             <div class="highlight"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;../data_samples/iphone_data_sample.csv&#39;</span><span class="p">)</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -251,15 +225,11 @@ location_type - 0 = unknown, 1 = GPS, 2 = GeoIP
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt"></div>
                             <div class="output_subarea output_stream output_stdout output_text">
@@ -302,11 +272,9 @@ dtypes: float64(5), int64(10), object(16)
 </pre>
                             </div>
                         </div>
-
                         <div class="output_area">
                             <div class="prompt output_prompt">
                                 Out[145]:</div>
-
                             <div class="output_html rendered_html output_subarea output_pyout">
                                 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
                                     <table border="1" class="dataframe">
@@ -462,12 +430,9 @@ dtypes: float64(5), int64(10), object(16)
                                     <p>5 rows × 31 columns</p>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
@@ -494,11 +459,9 @@ dtypes: float64(5), int64(10), object(16)
 <span class="c"># Keep an eye out for more lambda expressions in this demo, they are quite useful!</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -511,15 +474,11 @@ dtypes: float64(5), int64(10), object(16)
 <span class="n">us_tests</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt"></div>
                             <div class="output_subarea output_stream output_stdout output_text">
@@ -562,11 +521,9 @@ dtypes: float64(5), int64(10), object(16)
 </pre>
                             </div>
                         </div>
-
                         <div class="output_area">
                             <div class="prompt output_prompt">
                                 Out[147]:</div>
-
                             <div class="output_html rendered_html output_subarea output_pyout">
                                 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
                                     <table border="1" class="dataframe">
@@ -722,12 +679,9 @@ dtypes: float64(5), int64(10), object(16)
                                     <p>5 rows × 31 columns</p>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
@@ -749,11 +703,9 @@ dtypes: float64(5), int64(10), object(16)
 <span class="c"># Yes, easy as that!</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -768,11 +720,9 @@ dtypes: float64(5), int64(10), object(16)
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -787,11 +737,9 @@ dtypes: float64(5), int64(10), object(16)
 <span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -807,11 +755,9 @@ dtypes: float64(5), int64(10), object(16)
     <span class="n">carrs</span><span class="p">[</span><span class="n">carrier</span><span class="p">]</span> <span class="o">=</span> <span class="n">carrs</span><span class="p">[</span><span class="n">carrier</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -823,20 +769,14 @@ dtypes: float64(5), int64(10), object(16)
                             <div class="highlight"><pre><span class="n">carrs</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt output_prompt">
                                 Out[152]:</div>
-
-
                             <div class="output_text output_subarea output_pyout">
                                 <pre>
 {&apos;aio&apos;: 1,
@@ -850,12 +790,9 @@ dtypes: float64(5), int64(10), object(16)
  &apos;verizon&apos;: 11}
 </pre>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
@@ -879,19 +816,13 @@ dtypes: float64(5), int64(10), object(16)
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt"></div>
-
-
                             <div class="output_png output_subarea ">
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAksAAAHfCAYAAABAopzKAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAG99JREFUeJzt3Xu4bGddH/DvLzmoyD0iScRAvFVpn1QiBVFRtlptniqX
@@ -1022,12 +953,9 @@ bNwfZaH2McZ7ps+D106zrk7yKWOMv9z/SveXnw4AgBNQ858eedj6ta4cHof5NBwAnAyjC4eUkSUA
 gIaRJQCAhrAEANAQlgAAGsISAEBDWAIAaPx/Cf7+UF3CFs4AAAAASUVORK5CYII=
 ">
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
@@ -1049,20 +977,14 @@ gIaRJQCAhrAEANAQlgAAGsISAEBDWAIAaPx/Cf7+UF3CFs4AAAAASUVORK5CYII=
 <span class="n">test</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt output_prompt">
                                 Out[154]:</div>
-
-
                             <div class="output_text output_subarea output_pyout">
                                 <pre>
 5       37.552
@@ -1099,12 +1021,9 @@ gIaRJQCAhrAEANAQlgAAGsISAEBDWAIAaPx/Cf7+UF3CFs4AAAAASUVORK5CYII=
 Name: download_kbps, Length: 84, dtype: float64
 </pre>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -1125,11 +1044,9 @@ Name: download_kbps, Length: 84, dtype: float64
     <span class="n">carrs</span><span class="p">[</span><span class="n">carrier</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">latency</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">download_speed_mbs</span><span class="p">),</span> <span class="n">count</span><span class="p">]</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -1143,19 +1060,14 @@ Name: download_kbps, Length: 84, dtype: float64
 <span class="n">final</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt output_prompt">
                                 Out[156]:</div>
-
                             <div class="output_html rendered_html output_subarea output_pyout">
                                 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
                                     <table border="1" class="dataframe">
@@ -1202,12 +1114,9 @@ Name: download_kbps, Length: 84, dtype: float64
                                     </table>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing code_cell rendered">
                 <div class="input">
@@ -1226,19 +1135,13 @@ Name: download_kbps, Length: 84, dtype: float64
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt"></div>
-
-
                             <div class="output_png output_subarea ">
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlIAAAHpCAYAAABJOtJYAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XuYZFV97vHvCyNKlKuX4SICKkTJY7wd0EQ9dqIhJCrw
@@ -1407,12 +1310,9 @@ LX/+QJKk7ZTh51PuP3VtrXYeDu1JkrT97JXYSdkjJUmS1MkeKUmSpE4GKUmSpE4GKUmSpE4GKUmS
 pE4GKUmSpE7/H8jpQskjWIiCAAAAAElFTkSuQmCC
 ">
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
@@ -1439,19 +1339,13 @@ pE4GKUmSpE7/H8jpQskjWIiCAAAAAElFTkSuQmCC
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div class="output_wrapper">
                     <div class="output">
-
-
                         <div class="output_area">
                             <div class="prompt"></div>
-
-
                             <div class="output_png output_subarea ">
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmEAAAH4CAYAAAACdDpdAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XeYdHV99/H3h2KXLk0pNlQMKqLEgnLbiBWsKKBiSWxP
@@ -1674,12 +1568,9 @@ MzxHkobmKSokSZIasCVMkiSpAUOYJElSA4YwSZKkBgxhkiRJDRjCJEmSGjCESZIkNWAIkyRJauD/
 A+E0B0rkuFKxAAAAAElFTkSuQmCC
 ">
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
@@ -1695,7 +1586,6 @@ A+E0B0rkuFKxAAAAAElFTkSuQmCC
             </div>
         </div>
     </div>
-
     <div class="container">
         <!-- Footer Section -->
         <hr>
@@ -1712,23 +1602,22 @@ A+E0B0rkuFKxAAAAAElFTkSuQmCC
                     <i class="fa fa-instagram"></i> <a title="Instagram account" href="http://instagram.com/jameslmartin">instagram.com/jameslmartin</a>
                 </div>
             </div>
-
             <div class="col-md-4" id="latest">
                 <h3>Latest</h3>
+                <a href="../net-score/introduction/">An introduction to my research</a>
+                <br>
                 <a href="../rapid-reactions/">Rapid reactions on finishing a thesis</a>
                 <br>
                 <a href="../security-concerns/">Security concerns for automotive systems</a>
                 <br>
                 <a href="../notes-urls/">Field notes on cleaning up URLs</a>
             </div>
-
             <div class="col-md-4" id="spotify">
                 <h3>On Air</h3>
                 <iframe src="https://embed.spotify.com/?uri=spotify:user:1264920469:playlist:54UC7TV4G3lHuxnU2dGj1S" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
             </div>
         </div>
         <!-- End footer section -->
-
         <hr>
         <div class="row" id="copyright">
             <div class="col-md-12">
@@ -1737,7 +1626,6 @@ A+E0B0rkuFKxAAAAAElFTkSuQmCC
             </small>
             </div>
         </div>
-
     </div>
 </body>
 
