@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Work and thoughts from the mind of James Martin.">
     <meta name="author" content="James Martin">
-    <title>Cleaning URLs - Lucidity</title>
+    <title>Microptimizations - Lucidity</title>
 
     <!--fonts-->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -49,58 +49,52 @@
                 </nav>
                 <hr>
             </header>
-
             <div class="cell border-box-sizing text_cell rendered">
-                <div class="prompt input_prompt">
-                </div>
                 <div class="inner_cell">
                     <div class="text_cell_render border-box-sizing rendered_html">
-                        <h3>Field notes on cleaning up URLs</h3>
-                        <div class="post-date">15 Feb. 2015</div>
-                        <p>So today I wanted to set to cleaning up the URLs for the site. This is a super simple hack, does not take long to complete, and makes your URLs much prettier. My roommate, Chris Hendel (<a href="https://twitter.com/chris_hendel">@chris_hendel</a>), does professional web development for <a href="https://getpebble.com/">Pebble</a>. We discuss quality design in web development quite frequently, and while he is much better than I am with it, we'll often chat about the latest tools and frameworks. I asked him how to change my code so that the filenames do not appear at the end of my URLs, and he told me this is all you have to do:</p>
-                        <ol>
-                            <li>Make folders for each route of your website</li>
-                            <li>Rename the HTML file of each route to be <code>index.html</code>
-                            </li>
-                            <li>Change all the links on your site to open the directory of the route</li>
-                        </ol>
-                        <p>For example, if I wanted to go to my about page from my landing page, the link in the a tag would just be:</p>
+                        <h3>Microptimizations</h3>
+                        <div class="post-date">28 Jun. 2015</div>
+                        <p>I very much enjoy browsing other developer's blogs and personal websites to absorb as much information as I can. I know I'm a long way from being a great developer so I always look for interesting and easy ways to improve and sharpen my skills. Since starting as an Extreme Blue intern, I've had much greater flexibility when it comes to coding style. Last summer, my mentor in CommServer was excellent at reviewing my code and giving me targeted feedback. This summer, though our technical mentors review our code, they focus more on architecture rather than style and efficiency. They've let us run with our ideas without much supervision.</p>
+                        <p>I see this as a blessing <i>and</i> a curse. I thrive under the tuteledge of mentors and getting any sort of feedback on my work. Criticism and editing are vital components of the writing process (as I noted in my <a href="../rapid-reactions/" target="_blank">rapid reactions</a> to finishing my thesis) and I believe they are also vital aspects to the development process. As a software developer, I firmly believe no code is perfect after a first pass. I often note methods and classes for revision and search for ways to tweak and tune my code to be faster or more readable. This summer, without the sctrict, watchful eye of a mentor, I have to largely trust myself to review and test my own code.</p>
+                        <p>I came across a well maintained site of a C++ developer by the name of Constantine Tarasenkov. The UI of the <a href="http://procedural.github.io" target="_blank">website</a> was very clean so I stuck around and came across <a href="https://procedural.github.io//Chandler-Carruth-and-Mike-Acton-on-Efficiency-and-Performance-of-C++-Code/" target="_blank">this post</a>, which featured a few videos from CppCon 2014. Though my C++ chops are far from professional, I nonetheless watched a good portion of the first video. The most useful advice I took away came around <a href="https://youtu.be/fHNmRkzxHWs?t=26m" target="_blank">26 minutes</a>, where Chandler points out the very simple idea of only making one call to retrieve the value of the cache once. This was a forehead-smacking moment for me.</p>
                     </div>
                 </div>
             </div>
 
-            <pre><code>about/</code></pre>
-
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
                 </div>
                 <div class="inner_cell">
                     <div class="text_cell_render border-box-sizing rendered_html">
-                        <p>This way, in the URL bar we see:</p>
+                        <p>I've been doing a fair amount of work with <a href="https://github.com/FasterXML/jackson" target="_blank">Jackson</a> when manipulating JSON objects, which requires the frequent use of "pathing" into objects. There were several places in my code that looked like this:</p>
                     </div>
                 </div>
             </div>
 
-            <pre><code>cs.unc.edu/~jamesml/about/</code></pre>
+<script src="https://gist.github.com/jameslmartin/1af0e6922f3d1278981c.js"></script>
 
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
                 </div>
                 <div class="inner_cell">
                     <div class="text_cell_render border-box-sizing rendered_html">
-                        <p>...instead of the clunky:</p>
+                        <p>After watching Chandler's presentation, I immediately realized that these <code>.path()</code> operations in Jackson may be expensive. Without diving too much into the code I'm working on, these lines would be executing in many threads, many times. I had two options: <ol>
+                        <li>modify the returned object of each of my retrieve functions to be unlabeled OR</li>
+                        <li>attempt the .path() before the if statement.</li></ol></p>
+                        <p>I opted for the latter:</p>
                     </div>
                 </div>
             </div>
 
-            <pre><code>cs.unc/edu/~jamesml/about.html (or) cs.unc.edu/~jamesml/about/index.html</code></pre>
+<script src="https://gist.github.com/jameslmartin/dcc16d1b5013a56464f5.js"></script>
+
 
             <div class="cell border-box-sizing text_cell rendered">
                 <div class="prompt input_prompt">
                 </div>
                 <div class="inner_cell">
                     <div class="text_cell_render border-box-sizing rendered_html">
-                        <p>You just have to make sure you edit <em>all</em> the links in your web pages to avoid 404s. My next hack may be making a small Python script to compile .ipynbs to HTML with better CSS styling. I also may look into a way of serving my posts rather than uploading static web pages.</p>
+                        <p>I will continue to look for places in my code to make these and other "microptimizations." And as you might have guessed, I'm a fan of portmanteaus.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +122,7 @@
 
             <div class="col-md-4" id="latest">
                 <h3>Latest</h3>
-                <a href="../microptimizations">Microptimizations</a>
+                <a href=".">Microptimizations</a>
                 <br>
                 <a href="../net-score/introduction/">An introduction to my research</a>
                 <br>
