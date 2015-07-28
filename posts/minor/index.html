@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Work and thoughts from the mind of James Martin.">
+    <meta name="author" content="James Martin">
+    <title>On minors - Weighs/In/On</title>
+    <!--fonts-->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href='../../css/notebook.css' rel='stylesheet' type='text/css'>
+    <link href='../../css/site.css' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+        <div class="container" id="notebook-container">
+            <!-- Header Section -->
+            <header id="siteTitle">
+                <h1 class="title"><a href="../../">Weighs/In/On</a></h1>
+                <div class="subtitle"></div>
+                <nav>
+                    <a href="../../">Home</a>
+                    <a href="../../net-score/" target="_blank">net-score Project</a>
+                    <a href="../../about/">About</a>
+                </nav>
+                <hr>
+            </header>
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <h3>An introduction to my undergraduate research</h3>
+                        <div class="post-date">1 Jun. 2015</div>
+                        <p>My research in the computer science department at UNC consisted of conducting a series of experiments to evaluate whether the net-score tool accomplished its goals of being a scalable, low-cost method of measuring broadband performance.</p>
+                        <p>I also did quite a bit of analysis on data collected during a seventh month test deployment in 2014. The net-score tool was deployed on <a href="http://www.TarHeelReader.org" target="_blank">Tar Heel Reader</a>, a website maintained by UNC's own <a href="http://cs.unc.edu/~gb" target="_blank">Dr. Gary Bishop</a>. I used this data set to practice and familiarize myself with the scientific Python stack, which I started to learn when I was an undergraduate teaching assistant for Dr. Bishop. A year later, I feel pretty condifent with my data-massaging skills in Python.</p>
+                        <p>Another skill I took away from writing my thesis and performing research as an undergraduate was how to write with a top-down approach. Though I could have spent months editing and revising, my thesis was the first academic paper I wrote with the structure of explaining the motivating goals first, discussing state-of-the-art (and possible shortcomings), backing up claims with data, and finally making conclusions about the goals discussed in the introduction. I am pretty proud of finishing the thesis and defense, which I was awarded highest honors for. I have made the thesis defense available <a href="http://cs.unc.edu/~jamesml/senior-honors-thesis-defense.pdf" target="_blank">here</a>.</p>
+                        <p>The paper I co-authored in my Automous Systems course reflected a lot of these skills I learned. I wrote the first few sections, abstract, and conclusion of that paper and distinctly remember the words simply flowing onto the page. After finishing my thesis and that paper, I feel confident that I have a solid foundation on which to build upon when I begin graduate level research.</p>
+                        <p>I want to acknowledge the guidance of my advisor in this project, <a href="http://cs.unc.edu/~jasleen" target="_blank">Dr. Jasleen Kaur</a>. I have observed and gained much from her cool, collected demeanor, her excellent presentation skills, and sharp eye for details. She has an uncanny ability to keep projects on track, and I thank her for juggling my work with her obligations to her other students.</p>
+                        <h3>Introduction</h3>
+                        <p><i>Importance of measurement platforms</i></p>
+                        <p>Measurement platforms for network performance are useful for three reasons. The first is that they are important for diagnosing problems with access connections. Second, measurement platforms encourage transparency so customers can ensure they are provided equal service for equal price. Third, measurement platforms can gather data useful for researchers. By recording test data, researchers can gain insight into the state of current network infrastructure.</p>
+                        <p>Measuring the performance of broadband access connections is of interest to several groups. Consumers, content providers, and regulators are invested in transparent and accurate reports of network performance. Consumers are increasingly using broadband Internet connections to replace dedicated services like telephone and cable television (Palazzo). New services such as Sling TV, which provide streaming select TV channels, as well as the meteoric rise of video streaming, indicate this consumer movement. As higher volumes of content become widely available via the Internet, users need to be aware of the quality of their access connections (Dobrian).</p>
+                        <p>Content providers want their customers to be better connected to enable pushing of higher definition content. Higher definition and higher quality content through better connections retains customers and increases profits for providers. Slight increases in page load delays (100ms – 1s) can cause a noticeable drop in web searches and can result in revenue losses (Schurman and Brutlag). Consequently, content providers certainly hold a stake in promoting transparency for access connection performance.</p>
+                        <p>Regulators and governing bodies also share a stake in making measuring broadband access connections more transparent and more easily understood for non-experts. A well-connected populace is vital to competing in an increasingly globalized economy. Access to online information and education allows citizens to train for new careers, purchase products from across the globe, and participate in important conversations regarding prominent social issues. By promoting transparency, regulators ensure ISPs are held accountable for the claims they market to consumers and can target regions lacking infrastructure for improvements and development.</p>
+                        <br>
+                        <p><i>Qualities of an effective measurement platform</i></p>
+                        <p>An effective measurement platform will have a low barrier to entry for clients and will be scalable at low cost. To have a low barrier to entry, a measurement platform must not require additional hardware or software and must not take significant steps to initiate and complete. Navigating to a specific website, having to select a server to run a test to, or having to install a flash plugin are all examples of design decisions that increase barrier to entry. With a low barrier to entry, an effective measurement platform will be able to reach users in all corners of the Internet. Increasing the audience of the measurement platform through a low barrier to entry will allow more insights to be made from sampled data.</p>
+                        <p>Measurement platforms that are scalable at a low cost will be able to easily capture new populations. Being able to reach new audiences without incurring additional costs of maintaining the servers that host the platform will ensure continued growth and inclusiveness.</p>
+                        <p>Lastly, a measurement platform should accurately measure and reflect the behaviors its test takers exhibit. Since we wish to capture the performance of Internet users, we attempt to emulate and measure the performance of network actions taken while browsing the web. Internet users also only have a choice of which ISP carries their traffic to the backbone of the web. A measurement platform measuring web performance should reflect its user’s local network infrastructure, or last mile latencies. While limiting factors may exist in the backbone, last mile latency and local infrastructure play major roles in the speeds typical Internet users experience.</p>
+                        <br>
+                        <p><i>Our contribution</i></p>
+                        Considering these motivations, net-score is designed to be an easily scaled measurement platform that is a low cost alternative with a lower barrier to entry than the current state of the art. By using the browser as a platform, our tool can run HTTP based tests successfully on all browsers and operating systems, as discussed in later sections. Currently, net-score is deployed on several small blogs, including the personal websites of Eric Gavaletz and James Martin. Visiting the net-score website will run a full “flock” test, which is a more expansive test than evaluated in this paper. However, the test embedded in James Martin’s webpage is a “feather test,” which is described in detail and evaluated in this paper. Through a seven-month long deployment in the field, we observed almost 200,000 tests taken by at least 7,000 unique user agent strings. These tests were taken all across the globe with 150 countries represented in our sample. The website and audience we reached is described in greater detail in later sections.
+                        <p>Our vision for net-score is to eliminate the necessity to drive new users to our platform, but rather actively include new populations by embedding the tool on popular third party websites.</p>
+                        <small><i><a href="http://cs.unc.edu/~jamesml/senior-honors-thesis.pdf" target="_blank">Full text available.</a></i></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- IPython Notebook Container div -->
+    </div>
+    <!-- Notebook div -->
+    <div class="container">
+        <!-- Footer Section -->
+        <hr>
+        <div class="row" id="footer-section">
+            <div class="col-md-4" id="contact">
+                <h3>Contact</h3>
+                <div>
+                    <i class="fa fa-envelope-o"></i> <a title="Email address" href="mailto:jamesml@cs.unc.edu"> jamesml@cs.unc.edu</a>
+                    <br/>
+                    <i class="fa fa-github"></i> <a title="GitHub account" href="http://github.com/jameslmartin">github.com/jameslmartin</a>
+                    <br/>
+                    <i class="fa fa-twitter"></i> <a title="Twitter account" href="http://twitter.com/jamesmartweets">twitter.com/jamesmartweets</a>
+                    <br/>
+                    <i class="fa fa-instagram"></i> <a title="Instagram account" href="http://instagram.com/jameslmartin">instagram.com/jameslmartin</a>
+                </div>
+            </div>
+            <div class="col-md-4" id="latest">
+                <h3>Latest</h3>
+                <a href=".">The benefits of an undergraduate minor</a>
+                <br>
+                <a href="../microptimizations/">Microptimizations</a>
+                <br>
+                <a href="../net-score/introduction/">An introduction to my research</a>
+                <br>
+                <a href="../rapid-reactions/">Rapid reactions on finishing a thesis</a>
+            </div>
+            <div class="col-md-4" id="spotify">
+                <h3>On Air</h3>
+                <iframe src="https://embed.spotify.com/?uri=spotify:user:1264920469:playlist:54UC7TV4G3lHuxnU2dGj1S" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+            </div>
+        </div>
+        <!-- End footer section -->
+        <hr>
+        <div class="row" id="copyright">
+            <div class="col-md-12">
+                <small>
+            Style and website layout inspired by <a href="http://www.mindtrove.info">Pete Parente</a>. Website was built from scratch with elements drawn from Pete. Content and opinions are my own.
+            </small>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
